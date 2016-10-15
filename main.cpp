@@ -7,5 +7,7 @@ int main(int argc, char *argv[])
     VentanaPrincipal w;
     w.show();
 
+    qDebug("Ein Klassiker");
+
     return a.exec();
 }
