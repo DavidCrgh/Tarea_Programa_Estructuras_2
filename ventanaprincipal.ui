@@ -1,24 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>VentanaPrincipal</class>
- <widget class="QMainWindow" name="VentanaPrincipal" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="VentanaPrincipal">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>663</width>
+    <height>464</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>VentanaPrincipal</string>
+  <property name="minimumSize">
+   <size>
+    <width>663</width>
+    <height>464</height>
+   </size>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <property name="maximumSize">
+   <size>
+    <width>663</width>
+    <height>464</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Juicio Final</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="recursos.qrc">
+    <normaloff>:/recursos/imagenes/recursos/imagenes/tree-48-512.png</normaloff>:/recursos/imagenes/recursos/imagenes/tree-48-512.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 182, 255, 255), stop:0.414773 rgba(255, 255, 255, 255), stop:0.585227 rgba(255, 255, 255, 255), stop:1 rgba(255, 102, 0, 255));
+</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>0</y>
+      <width>501</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+image: url(:/recursos/imagenes/recursos/imagenes/Imagen2.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>-10</y>
+      <width>271</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+image: url(:/recursos/imagenes/recursos/imagenes/tree-48-512.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>320</y>
+      <width>141</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+image: url(:/recursos/imagenes/recursos/imagenes/bird-icon-png[1].png);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>310</y>
+      <width>171</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+image: url(:/recursos/imagenes/recursos/imagenes/goat_satan_pentagram_by_hakage21-d6rw4rl.png);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>410</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 255);
+
+font: 75 20pt &quot;System&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Comenzar</string>
+    </property>
+   </widget>
+  </widget>
+  <action name="actionHola">
+   <property name="text">
+    <string>Hola</string>
+   </property>
+  </action>
+  <action name="actionMundo">
+   <property name="text">
+    <string>Mundo</string>
+   </property>
+  </action>
+  <action name="actionNepe">
+   <property name="text">
+    <string>Nepe</string>
+   </property>
+  </action>
+  <action name="actionNegro">
+   <property name="text">
+    <string>Negro</string>
+   </property>
+  </action>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
- <resources/>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

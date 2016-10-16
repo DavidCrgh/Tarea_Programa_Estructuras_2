@@ -13,8 +13,17 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        ventanaprincipal.cpp
+        ventanaprincipal.cpp \
+    ventanamundo.cpp \
+    listamundo.cpp
 
-HEADERS  += ventanaprincipal.h
+HEADERS  += ventanaprincipal.h \
+    ventanamundo.h \
+    listamundo.h
 
-FORMS    += ventanaprincipal.ui
+FORMS    += ventanaprincipal.ui \
+    ventanamundo.ui \
+    form.ui
+
+RESOURCES += \
+    recursos.qrc

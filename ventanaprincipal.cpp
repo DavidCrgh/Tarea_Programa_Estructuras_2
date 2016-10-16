@@ -12,3 +12,10 @@ VentanaPrincipal::~VentanaPrincipal()
 {
     delete ui;
 }
+
+void VentanaPrincipal::on_pushButton_clicked()
+{
+    VentanaMundo* ventanaMundo = new VentanaMundo();
+    ventanaMundo->show();
+    close();
+}

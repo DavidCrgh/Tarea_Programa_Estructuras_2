@@ -2,6 +2,7 @@
 #define VENTANAPRINCIPAL_H
 
 #include <QMainWindow>
+#include "ventanamundo.h"
 
 namespace Ui {
 class VentanaPrincipal;
@@ -14,6 +15,9 @@ class VentanaPrincipal : public QMainWindow
 public:
     explicit VentanaPrincipal(QWidget *parent = 0);
     ~VentanaPrincipal();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::VentanaPrincipal *ui;
