@@ -5,10 +5,12 @@
         <file>recursos/imagenes/bird-icon-png[1].png</file>
         <file>recursos/imagenes/goat_satan_pentagram_by_hakage21-d6rw4rl.png</file>
         <file>recursos/imagenes/44386.png</file>
-        <file>recursos/imagenes/circ1.png</file>
-        <file>recursos/imagenes/circ2.png</file>
     </qresource>
     <qresource prefix="/datos">
         <file>recursos/datos/nombres.txt</file>
+        <file>recursos/datos/apellidos.txt</file>
+        <file>recursos/datos/paises.txt</file>
+        <file>recursos/datos/profesiones.txt</file>
+        <file>recursos/datos/religiones.txt</file>
     </qresource>
 </RCC>

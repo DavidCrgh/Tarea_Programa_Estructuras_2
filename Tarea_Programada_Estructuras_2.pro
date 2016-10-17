@@ -22,8 +22,7 @@ HEADERS  += ventanaprincipal.h \
     listamundo.h
 
 FORMS    += ventanaprincipal.ui \
-    ventanamundo.ui \
-    form.ui
+    ventanamundo.ui
 
 RESOURCES += \
     recursos.qrc
