@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VentanaConsultaApellido</class>
+ <widget class="QMainWindow" name="VentanaConsultaApellido">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Consulta por Apellido</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="recursos.qrc">
+    <normaloff>:/imagenes/recursos/imagenes/family-512.png</normaloff>:/imagenes/recursos/imagenes/family-512.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0,x2:1,y2:0,stop:0 
+rgba(0,182,255,255), stop:0.329545 rgba(255,255,255,255), stop:0.670455
+rgba(255,255,255,255),stop:1 rgba(255,102,0,255));
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+ </widget>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
+ <connections/>
+</ui>

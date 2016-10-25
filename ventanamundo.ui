@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Mundo</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recursos.qrc">
+    <normaloff>:/imagenes/recursos/imagenes/44386.png</normaloff>:/imagenes/recursos/imagenes/44386.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 182, 255, 255), stop:0.329545 rgba(255, 255, 255, 255), stop:0.670455 rgba(255, 255, 255, 255), stop:1 rgba(255, 102, 0, 255));</string>
   </property>
@@ -274,6 +278,8 @@ font: 75 16pt &quot;System&quot;;</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

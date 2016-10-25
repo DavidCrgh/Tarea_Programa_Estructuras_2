@@ -5,6 +5,14 @@
         <file>recursos/imagenes/bird-icon-png[1].png</file>
         <file>recursos/imagenes/goat_satan_pentagram_by_hakage21-d6rw4rl.png</file>
         <file>recursos/imagenes/44386.png</file>
+        <file>recursos/imagenes/cute-baby-icons-70794.png</file>
+        <file>recursos/imagenes/sparrow-carrying-a-baby.png</file>
+        <file>recursos/imagenes/22040-200.png</file>
+        <file>recursos/imagenes/Evil-512.png</file>
+        <file>recursos/imagenes/flame-512.png</file>
+        <file>recursos/imagenes/country-ink-flat-icon-outline-map-russia.png</file>
+        <file>recursos/imagenes/family-512.png</file>
+        <file>recursos/imagenes/Man-and-Woman.png</file>
     </qresource>
     <qresource prefix="/datos">
         <file>recursos/datos/nombres.txt</file>

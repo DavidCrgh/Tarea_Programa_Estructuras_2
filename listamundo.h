@@ -2,15 +2,19 @@
 #define LISTAMUNDO_H
 #include <string>
 #include <ctime>
+#include <QDebug>
+#include <stdlib.h>
+
+
 
 struct NodoHumano{
     int id;
-    std::string nombre;
-    std::string apellido;
-    std::string pais;
-    std::string creencia;
-    std::string profesion;
-    std::string correo;
+    QString nombre;
+    QString apellido;
+    QString pais;
+    QString creencia;
+    QString profesion;
+    QString correo;
     std::string momentoNacimiento;
     int listaPecados[7];
     NodoHumano* listaHijos[8];
@@ -18,8 +22,8 @@ struct NodoHumano{
     NodoHumano* siguiente;
     NodoHumano* anterior;
 
-    NodoHumano(int pId, std::string pNombre, std::string pApellido, std::string pPais,
-               std::string pCreencia, std::string pProfesion, std::string pCorreo){
+    NodoHumano(int pId, QString pNombre, QString pApellido, QString pPais,
+               QString pCreencia, QString pProfesion, QString pCorreo){
         id = pId;
         nombre = pNombre;
         apellido = pApellido;
@@ -36,14 +40,25 @@ struct NodoHumano{
     }
 
     std::string obtenerNacimiento();
+
 };
 
 struct ListaMundo{
     NodoHumano* primerHumano;
 
+
     ListaMundo(){
         primerHumano = NULL;
+
     }
+    int cantidadHumanos();
+    void sumarPecados();
+    void insertar(int id,QString nombre,QString apellido,QString pais, QString creencia,
+                          QString profesion,QString correo);
+    bool existeId(int id);
+    NodoHumano* buscarIdFamilia(int id);
+    QString imprimirListaMundo(QString* listaNombrePecados);
+    void otorgarPecados();
 };
 
 #endif // LISTAMUNDO_H

@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>:/recursos/imagenes/recursos/imagenes/tree-48-512.png</normaloff>:/recursos/imagenes/recursos/imagenes/tree-48-512.png</iconset>
+    <normaloff>:/imagenes/recursos/imagenes/tree-48-512.png</normaloff>:/imagenes/recursos/imagenes/tree-48-512.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -54,7 +54,7 @@ image: url(:/recursos/imagenes/recursos/imagenes/Imagen2.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="recursos.qrc">:/imagenes/recursos/imagenes/Imagen2.png</pixmap>
+     <pixmap>:/imagenes/recursos/imagenes/Imagen2.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -77,7 +77,7 @@ image: url(:/recursos/imagenes/recursos/imagenes/tree-48-512.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="recursos.qrc">:/imagenes/recursos/imagenes/tree-48-512.png</pixmap>
+     <pixmap>:/imagenes/recursos/imagenes/tree-48-512.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -101,7 +101,7 @@ image: url(:/recursos/imagenes/recursos/imagenes/bird-icon-png[1].png);
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="recursos.qrc">:/imagenes/recursos/imagenes/bird-icon-png[1].png</pixmap>
+     <pixmap>:/imagenes/recursos/imagenes/bird-icon-png[1].png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -125,7 +125,7 @@ image: url(:/recursos/imagenes/recursos/imagenes/goat_satan_pentagram_by_hakage2
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="recursos.qrc">:/imagenes/recursos/imagenes/goat_satan_pentagram_by_hakage21-d6rw4rl.png</pixmap>
+     <pixmap>:/imagenes/recursos/imagenes/goat_satan_pentagram_by_hakage21-d6rw4rl.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -172,8 +172,6 @@ font: 75 20pt &quot;System&quot;;</string>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="recursos.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

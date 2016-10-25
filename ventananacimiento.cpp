@@ -1,0 +1,51 @@
+#include "ventananacimiento.h"
+#include "ui_ventananacimiento.h"
+
+
+VentanaNacimiento::VentanaNacimiento(QWidget *parent,QString* pApellidos, QString* pNombres,
+    QString* pPaises,QString* pCreencias,QString* pProfesiones,QString* pNombrePecado,ListaMundo* pListaMundo) :
+    QMainWindow(parent),
+    ui(new Ui::VentanaNacimiento)
+{
+    ui->setupUi(this);
+    ui->casillaHumanos->setRange(0,9999999);
+    apellidos= pApellidos;
+    nombres=pNombres;
+    paises=pPaises;
+    creencias=pCreencias;
+    profesiones=pProfesiones;
+    nombrePecado= pNombrePecado;
+    listaMundo=pListaMundo;
+    ventanaHumanos= new VentanaListaMundo(NULL,nombrePecado,listaMundo);
+
+
+}
+
+VentanaNacimiento::~VentanaNacimiento()
+{
+    delete ui;
+}
+
+void VentanaNacimiento::on_aceptar_clicked()
+{
+
+    int cantidadHumanos= ui->casillaHumanos->value();
+
+    hiloCrearHumanos= new HiloCrearHumanos(NULL,listaMundo,apellidos,nombres,paises,creencias,profesiones,cantidadHumanos);
+
+    hiloCrearHumanos->start();
+
+}
+
+void VentanaNacimiento::actualizarVentana(){
+
+    ui->cantidadHumanos->setText(QString::number(listaMundo->cantidadHumanos()));
+    ui->casillaHumanos->setRange(0,9999999-(listaMundo->cantidadHumanos()));
+    }
+
+void VentanaNacimiento::on_botonHumanos_clicked()
+{
+
+    ventanaHumanos->show();
+    close();
+}
