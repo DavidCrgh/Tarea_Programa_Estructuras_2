@@ -21,8 +21,8 @@ VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres
     ventanaSalvados= new VentanaSalvados();
     ventanaNacimiento= new VentanaNacimiento(NULL,apellidos,nombres,paises,creencias,profesiones,nombrePecado,listaMundo);
     ventanaConsultasFamilia= new VentanaConsultasFamilia();
-    ventanaTop10 = new VentanaTop10Pecadores();
-    ventanaTop5= new VentanaTop5Salvados();
+    ventanaTop10 = new VentanaTop10Pecadores(NULL,listaMundo,paises);
+    ventanaTop5= new VentanaTop5Salvados(NULL,listaMundo,paises);
     ventanaContinentes = new VentanaContinentes();
     ventanaPecadores = new VentanaPecadores();
     ventanaConsultaApellido = new VentanaConsultaApellido();

@@ -5,7 +5,27 @@
 #include <QDebug>
 #include <stdlib.h>
 
+struct Pais;
+struct NodoHumano;
+struct ListaMundo;
 
+void insertion_sort (Pais* arregloPaises[], int largo);
+int sumaPecadosHumano(NodoHumano* persona);
+
+struct Pais{
+
+    QString nombrePais;
+    int pecadosTotales;
+
+    Pais(QString pNombrePais,int pPecadosTotales){
+
+        nombrePais=pNombrePais;
+        pecadosTotales=pPecadosTotales;
+
+    }
+
+
+};
 
 struct NodoHumano{
     int id;
@@ -59,6 +79,8 @@ struct ListaMundo{
     NodoHumano* buscarIdFamilia(int id);
     QString imprimirListaMundo(QString* listaNombrePecados);
     void otorgarPecados();
+
+    QString paisesPecadores(QString* paises,bool top);
 };
 
 #endif // LISTAMUNDO_H

@@ -165,3 +165,71 @@ void ListaMundo::otorgarPecados(){
 
 }
 
+int sumaPecadosHumano(NodoHumano* persona){
+
+    int sumatoria=0;
+    for(int i=0; i<7 ;i++)
+        sumatoria+= persona->listaPecados[i];
+    return sumatoria;
+
+
+}
+
+void insertion_sort (Pais* arr[], int length){
+        int j;
+       Pais* temp;
+
+    for (int i = 0; i < length; i++){
+        j = i;
+
+        while (j > 0 && arr[j]->pecadosTotales < arr[j-1]->pecadosTotales){
+              temp = arr[j];
+              arr[j] = arr[j-1];
+              arr[j-1] = temp;
+              j--;
+              }
+        }
+}
+
+
+QString ListaMundo::paisesPecadores(QString* paises,bool cualTop){
+    Pais* arregloPaises[242];
+    QString top;
+
+    for(int i=0;i<242;i++){
+        int contador=0;
+        NodoHumano* humanoTemporal=primerHumano;
+
+        while(humanoTemporal!=NULL){
+            if(humanoTemporal->pais==paises[i])
+                contador+=sumaPecadosHumano(humanoTemporal);
+            humanoTemporal=humanoTemporal->siguiente;
+        }
+       Pais* pais= new Pais(paises[i],contador);
+       arregloPaises[i]=pais;
+    }
+      insertion_sort(arregloPaises,242);
+
+      for (int i=0;i<20;i++){
+
+          qDebug()<<arregloPaises[i]->nombrePais<<" "<<arregloPaises[i]->pecadosTotales<<"\n";
+
+      }
+
+      if(cualTop){
+          for(int i=241; i>231; i--)
+              top += arregloPaises[i]->nombrePais+ " " +QString::number(arregloPaises[i]->pecadosTotales)+"\n";
+      }
+      else{
+          int i=0;
+          while(arregloPaises[i]->pecadosTotales==0){
+            i++;
+          }
+
+          for(int j=i; j< i+5; j++)
+              top += arregloPaises[j]->nombrePais+" "+QString::number(arregloPaises[j]->pecadosTotales)+"\n";
+      }
+
+      return top;
+
+}

@@ -57,6 +57,17 @@ font: 13.5pt &quot;Californian FB&quot;;</string>
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="actualizar">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+font: 75 16pt &quot;System&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Actualizar</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>
