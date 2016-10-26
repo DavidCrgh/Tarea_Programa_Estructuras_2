@@ -17,7 +17,7 @@ VentanaNacimiento::VentanaNacimiento(QWidget *parent,QString* pApellidos, QStrin
     nombrePecado= pNombrePecado;
     listaMundo=pListaMundo;
     ventanaHumanos= new VentanaListaMundo(NULL,nombrePecado,listaMundo);
-   // ui->casillaHumanos->setDisabled(true);
+    ui->casillaHumanos->setDisabled(true);
     ui->casillaHumanos->setValue(10000);
 
 }
