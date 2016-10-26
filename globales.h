@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
+#include "arbolapellidos.h"
 /*
 #include <QDebug>
 #include "ventanaarbolvida.h"
@@ -25,5 +26,6 @@ QString* cargarPaises();
 QString* cargarCreencias();
 QString* cargarProfesiones();
 QString* cargarPecados();
+void popularArbolesApellido(ArbolApellidos* arreglo []);
 
 #endif // GLOBALES_H

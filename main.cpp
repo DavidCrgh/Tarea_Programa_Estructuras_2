@@ -13,11 +13,14 @@ int main(int argc, char *argv[])
  QString* creencias=    cargarCreencias();
  QString* profesiones=  cargarProfesiones();
  QString* nombrePecados= cargarPecados();
+ ArbolApellidos* arbolesApellidos[1000];
+ popularArbolesApellido(arbolesApellidos);
  ListaMundo* listaMundo= new ListaMundo();
  HiloInterfaz* hiloInterfazPrincipal;
 
     QApplication a(argc, argv);
-    VentanaPrincipal* w = new VentanaPrincipal(NULL,apellidos,nombres,paises,creencias,profesiones,nombrePecados,listaMundo);
+    VentanaPrincipal* w = new VentanaPrincipal(NULL,apellidos,nombres,paises,creencias,profesiones,
+                                               nombrePecados,listaMundo, arbolesApellidos);
     w->show();
 
     hiloInterfazPrincipal= new HiloInterfaz(NULL,w);

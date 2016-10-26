@@ -15,7 +15,7 @@
 #include "ventanasalvados.h"
 #include "ventanatop10pecadores.h"
 #include "ventanatop5salvados.h"
-
+#include "arbolapellidos.h"
 
 #include <QWidget>
 
@@ -30,7 +30,7 @@ class VentanaMundo : public QWidget
 public:
     explicit VentanaMundo(QWidget *parent = 0,QString*apellidos=0,QString*nombres=0,
      QString* paises=0, QString*creencias=0, QString*profesiones=0,QString*nombrePecado=0,
-     ListaMundo*listaMundo=0);
+     ListaMundo*listaMundo=0, ArbolApellidos* pArbolesApellidos[] = 0);
     ~VentanaMundo();
 
 private slots:
@@ -67,6 +67,7 @@ public:
     QString*profesiones;
     QString* nombrePecado;
     ListaMundo* listaMundo;
+    ArbolApellidos* arbolesApellidos[];
 
     VentanaArbolVida* ventanaArbolVida;
     VentanaSalvados* ventanaSalvados;
@@ -79,9 +80,6 @@ public:
     VentanaConsultaApellido* ventanaConsultaApellido;
     VentanaCondenarPais* ventanaCondenarPais;
     VentanaCondenados* ventanaCondenados;
-
-
-
 };
 
 #endif // VENTANAMUNDO_H

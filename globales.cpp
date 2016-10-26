@@ -10,7 +10,7 @@ QString nombrePecado[]={"Lujuria","Gula","Avaricia","Pereza","Ira","Envidia","So
 
 QString* cargarApellidos(){
 
-    QFile inputFile("C:/Users/Francisco Contreras/Documents/Tarea_Programada_Estructuras_2/recursos/datos/apellidos.txt");
+    QFile inputFile(":/datos/recursos/datos/apellidos.txt");
     if (inputFile.open(QIODevice::ReadOnly))
     {
        QTextStream in(&inputFile);
@@ -28,7 +28,7 @@ QString* cargarApellidos(){
 }
 
 QString* cargarNombres(){
-    QFile inputFile("C:/Users/Francisco Contreras/Documents/Tarea_Programada_Estructuras_2/recursos/datos/nombres.txt");
+    QFile inputFile(":/datos/recursos/datos/nombres.txt");
     if (inputFile.open(QIODevice::ReadOnly))
     {
        QTextStream in(&inputFile);
@@ -47,7 +47,7 @@ QString* cargarNombres(){
 
 QString* cargarPaises(){
 
-    QFile inputFile("C:/Users/Francisco Contreras/Documents/Tarea_Programada_Estructuras_2/recursos/datos/paises.txt");
+    QFile inputFile(":/datos/recursos/datos/paises.txt");
     if (inputFile.open(QIODevice::ReadOnly))
     {
        QTextStream in(&inputFile);
@@ -67,7 +67,7 @@ QString* cargarPaises(){
 
 QString* cargarCreencias(){
 
-    QFile inputFile("C:/Users/Francisco Contreras/Documents/Tarea_Programada_Estructuras_2/recursos/datos/religiones.txt");
+    QFile inputFile(":/datos/recursos/datos/religiones.txt");
     if (inputFile.open(QIODevice::ReadOnly))
     {
        QTextStream in(&inputFile);
@@ -86,7 +86,7 @@ QString* cargarCreencias(){
 
 QString* cargarProfesiones(){
 
-    QFile inputFile("C:/Users/Francisco Contreras/Documents/Tarea_Programada_Estructuras_2/recursos/datos/profesiones.txt");
+    QFile inputFile(":/datos/recursos/datos/profesiones.txt");
     if (inputFile.open(QIODevice::ReadOnly))
     {
        QTextStream in(&inputFile);
@@ -108,6 +108,13 @@ QString* cargarPecados(){
 
     return nombrePecado;
 
+}
+
+void popularArbolesApellido(ArbolApellidos* arreglo [])
+{
+    for(int i = 0; i < 1000; i++){
+        arreglo[i] = new ArbolApellidos();
+    }
 }
 
 

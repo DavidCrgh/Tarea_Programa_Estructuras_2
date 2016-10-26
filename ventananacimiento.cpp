@@ -3,7 +3,8 @@
 
 
 VentanaNacimiento::VentanaNacimiento(QWidget *parent,QString* pApellidos, QString* pNombres,
-    QString* pPaises,QString* pCreencias,QString* pProfesiones,QString* pNombrePecado,ListaMundo* pListaMundo) :
+    QString* pPaises,QString* pCreencias,QString* pProfesiones,QString* pNombrePecado,ListaMundo* pListaMundo,
+                                     ArbolApellidos* pArbolesApellidos[] = 0) :
     QMainWindow(parent),
     ui(new Ui::VentanaNacimiento)
 {
@@ -19,7 +20,7 @@ VentanaNacimiento::VentanaNacimiento(QWidget *parent,QString* pApellidos, QStrin
     ventanaHumanos= new VentanaListaMundo(NULL,nombrePecado,listaMundo);
     ui->casillaHumanos->setDisabled(true);
     ui->casillaHumanos->setValue(10000);
-
+    arbolesApellidos = pArbolesApellidos;
 }
 
 VentanaNacimiento::~VentanaNacimiento()
@@ -35,7 +36,8 @@ void VentanaNacimiento::on_aceptar_clicked()
     ui->casillaHumanos->setDisabled(false);
     ui->casillaHumanos->setValue(0);
 
-    hiloCrearHumanos= new HiloCrearHumanos(NULL,listaMundo,apellidos,nombres,paises,creencias,profesiones,cantidadHumanos);
+    hiloCrearHumanos = new HiloCrearHumanos(NULL,listaMundo,apellidos,nombres,paises,creencias,
+                                            profesiones,cantidadHumanos);
 
     hiloCrearHumanos->start();
 

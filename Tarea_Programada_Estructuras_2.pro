@@ -49,7 +49,9 @@ HEADERS  += ventanaprincipal.h \
     ventanacondenados.h \
     ventanalistamundo.h \
     hilocrearhumanos.h \
-    hilointerfaz.h
+    hilointerfaz.h \
+    arbolapellidos.h \
+    nodoid.h
 
 FORMS    += ventanaprincipal.ui \
     ventanamundo.ui \
