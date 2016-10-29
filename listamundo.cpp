@@ -43,7 +43,7 @@ void ListaMundo::insertar(int id,QString nombre, QString apellido,QString pais,Q
     if(primerHumano==NULL)
         primerHumano= humanoNuevo;
 
-    else if(primerHumano->id> humanoNuevo->id){
+    else if(primerHumano->id > humanoNuevo->id){
 
         primerHumano->anterior= humanoNuevo;
         humanoNuevo->siguiente= primerHumano;
@@ -78,6 +78,22 @@ void ListaMundo::insertar(int id,QString nombre, QString apellido,QString pais,Q
 
     }
 
+}
+
+void ListaMundo::borrar(NodoHumano *borrado){
+    if(borrado->anterior == NULL){
+        primerHumano = primerHumano->siguiente;
+        primerHumano->anterior->siguiente = NULL;
+        primerHumano->anterior = NULL;
+    } else if(borrado->siguiente == NULL){
+        borrado->anterior->siguiente = NULL;
+        borrado->anterior = NULL;
+    } else {
+        borrado->anterior->siguiente = borrado->siguiente;
+        borrado->siguiente->anterior = borrado->anterior;
+        borrado->siguiente = NULL;
+        borrado->anterior = NULL;
+    }
 }
 
 bool ListaMundo:: existeId(int id){
@@ -128,7 +144,9 @@ QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
 
     NodoHumano* humanoTemporal= primerHumano;
     QString informacion;
-    int humano=1;
+    int humano=0;
+    int indice=0;
+
     while(humanoTemporal!=NULL){
         informacion+= QString::number(humano)+") ";
         informacion+= "Nombre: "+humanoTemporal->nombre+"\n";
@@ -150,6 +168,7 @@ QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
         informacion+= "\n\n";
         humanoTemporal= humanoTemporal->siguiente;
         humano++;
+        indice++;
     }
     return informacion;
 }
@@ -206,6 +225,24 @@ void insertion_sort (Pais* arr[], int length){
               }
         }
 }
+
+void ordenarPecadores(std::vector<NodoHumano*>arregloPecadores, int largo){
+    int j;
+    NodoHumano* temporal;
+
+    for(int i = 0; i < largo; i++){
+        j = i;
+
+        while(j > 0 && sumaPecadosHumano(arregloPecadores[j]) > sumaPecadosHumano(arregloPecadores[j-1])){
+            temporal = arregloPecadores[j];
+            arregloPecadores[j] = arregloPecadores[j-1];
+            arregloPecadores[j-1] = temporal;
+            j--;
+        }
+    }
+}
+
+
 
 
 QString ListaMundo::paisesPecadores(QString* paises,bool cualTop){
@@ -266,6 +303,41 @@ NodoHumano* ListaMundo::mitadLista(){
 
     return humanoTemporal;
 
+}
+
+int ListaMundo::contarNacionales(QString pPais){
+    int sumatoria = 0;
+    NodoHumano* nodoActual = primerHumano;
+
+    while(nodoActual != NULL){
+        if(nodoActual->pais == pPais){
+            sumatoria++;
+        }
+        nodoActual = nodoActual->siguiente;
+    }
+
+    return sumatoria;
+}
+
+std::vector<NodoHumano*> ListaMundo::generarHeapCondenados(QString pPais){
+    int largoArreglo = contarNacionales(pPais);
+
+    std::vector <NodoHumano*> arregloPecadores(largoArreglo);
+
+    NodoHumano* nodoActual = primerHumano;
+    int indice = 0;
+
+    while(nodoActual != NULL){
+        if(pPais == nodoActual->pais){
+            arregloPecadores[indice] = nodoActual;
+            indice++;
+        }
+        nodoActual = nodoActual->siguiente;
+    }
+
+    ordenarPecadores(arregloPecadores, largoArreglo);
+
+    return arregloPecadores;
 }
 
 void ListaMundo::generarArbol(){

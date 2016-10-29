@@ -16,6 +16,7 @@ VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres
     nombrePecado=pNombrePecado;
     listaMundo=pListaMundo;
     arbolesApellidos = pArbolesApellidos;
+    infierno= new Infierno();
 
 
     ventanaArbolVida = new VentanaArbolVida();
@@ -28,8 +29,8 @@ VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres
     ventanaContinentes = new VentanaContinentes();
     ventanaPecadores = new VentanaPecadores();
     ventanaConsultaApellido = new VentanaConsultaApellido();
-    ventanaCondenarPais = new VentanaCondenarPais(NULL,paises);
-    ventanaCondenados= new VentanaCondenados();
+    ventanaCondenarPais = new VentanaCondenarPais(NULL,infierno,listaMundo,paises);
+    ventanaCondenados= new VentanaCondenados(NULL,infierno,nombrePecado);
 
 
 }

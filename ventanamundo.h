@@ -16,6 +16,7 @@
 #include "ventanatop10pecadores.h"
 #include "ventanatop5salvados.h"
 #include "arbolapellidos.h"
+#include "infierno.h"
 
 #include <QWidget>
 
@@ -68,6 +69,7 @@ public:
     QString* nombrePecado;
     ListaMundo* listaMundo;
     ArbolApellidos** arbolesApellidos;
+    Infierno* infierno;
 
     VentanaArbolVida* ventanaArbolVida;
     VentanaSalvados* ventanaSalvados;

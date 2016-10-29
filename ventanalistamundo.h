@@ -20,6 +20,9 @@ public:
     Ui::VentanaListaMundo *ui;
     QString* nombrePecado;
     ListaMundo * listaMundo;
+  //  NodoHumano* humanoTemporal;
+ //   int contadorHumanos;
+
 
 private slots:
     void on_actualizar_clicked();

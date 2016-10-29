@@ -6,21 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>457</width>
-    <height>425</height>
+    <width>923</width>
+    <height>487</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>457</width>
-    <height>425</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>457</width>
-    <height>425</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>Infierno</string>
@@ -51,11 +39,74 @@ font: 14pt &quot;Californian FB&quot;;</string>
      </widget>
     </item>
     <item>
-     <widget class="QTextBrowser" name="informacionCondenados">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QTextBrowser" name="informacionCondenados">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTreeWidget" name="arbolSplay">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <column>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>País</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>168</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="actualizar">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 75 16pt &quot;System&quot;;
+</string>
+        </property>
+        <property name="text">
+         <string>Actualizar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>378</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

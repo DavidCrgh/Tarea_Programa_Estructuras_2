@@ -7,7 +7,6 @@
 
 int main(int argc, char *argv[])
 {
-
  QString* apellidos=    cargarApellidos();
  QString* nombres=      cargarNombres();
  QString* paises=       cargarPaises();

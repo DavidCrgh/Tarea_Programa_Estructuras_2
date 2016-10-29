@@ -4,6 +4,7 @@
 #include <ctime>
 #include <QDebug>
 #include <stdlib.h>
+#include <vector>
 
 struct Pais;
 struct NodoHumano;
@@ -13,6 +14,7 @@ struct ArbolMundo;
 
 
 void insertion_sort (Pais* arregloPaises[], int largo);
+void ordenarPecadores(std::vector<NodoHumano*> arregloPecadores, int pLargo);
 int sumaPecadosHumano(NodoHumano* persona);
 NodoHumano* desplazarPuntero(NodoHumano* persona, int cantidad, bool direccion);
 
@@ -110,6 +112,7 @@ struct ListaMundo{
     void sumarPecados();
     void insertar(int id,QString nombre,QString apellido,QString pais, QString creencia,
                           QString profesion,QString correo);
+    void borrar(NodoHumano* borrado);
     bool existeId(int id);
     NodoHumano* buscarIdFamilia(int id);
     QString imprimirListaMundo(QString* listaNombrePecados);
@@ -120,7 +123,9 @@ struct ListaMundo{
     void generarArbol();
 
     int largoLista();
+    int contarNacionales(QString pPais);
 
+   std::vector<NodoHumano*> generarHeapCondenados(QString pPais);
 
     NodoHumano* mitadLista();
 };
