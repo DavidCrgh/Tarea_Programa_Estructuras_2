@@ -3,7 +3,7 @@
 
 VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres,QString* pPaises,
                            QString* pCreencias, QString* pProfesiones,QString* pNombrePecado,
-                           ListaMundo* pListaMundo, ArbolApellidos* pArbolesApellidos[]) :
+                           ListaMundo* pListaMundo,ArbolApellidos ** pArbolesApellidos):
     QWidget(parent),
     ui(new Ui::VentanaMundo)
 {
@@ -21,7 +21,7 @@ VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres
     ventanaArbolVida = new VentanaArbolVida();
     ventanaSalvados= new VentanaSalvados();
     ventanaNacimiento= new VentanaNacimiento(NULL,apellidos,nombres,paises,creencias,profesiones,
-                                             nombrePecado,listaMundo);
+                                             nombrePecado,listaMundo,arbolesApellidos);
     ventanaConsultasFamilia= new VentanaConsultasFamilia();
     ventanaTop10 = new VentanaTop10Pecadores(NULL,listaMundo,paises);
     ventanaTop5= new VentanaTop5Salvados(NULL,listaMundo,paises);

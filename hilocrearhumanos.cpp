@@ -1,7 +1,7 @@
 #include "hilocrearhumanos.h"
 
 HiloCrearHumanos::HiloCrearHumanos(QObject* parent,ListaMundo* pListaMundo,QString* pApellidos,QString* pNombres,QString* pPaises,
-      QString* pCreencias,QString* pProfesiones,int pCantidadHumanos)
+      QString* pCreencias,QString* pProfesiones,int pCantidadHumanos, ArbolApellidos** pArbolApellidos)
 {
 
 listaMundo=pListaMundo;
@@ -11,6 +11,7 @@ paises=pPaises;
 creencias=pCreencias;
 profesiones=pProfesiones;
 cantidadHumanos=pCantidadHumanos;
+arbolApellidos=pArbolApellidos;
 
 }
 
@@ -19,12 +20,13 @@ cantidadHumanos=pCantidadHumanos;
 void HiloCrearHumanos::run(){
 
     srand(time(NULL));
+    int maximo= 10000000;
 
     for(int i=0;i<cantidadHumanos;i++){
-        int id= rand()%10000000;
+        int id= (1.0*rand()/RAND_MAX)*maximo;
 
             while(listaMundo->existeId(id)){
-                id= rand()%10000000;
+                id= (1.0*rand()/RAND_MAX)*maximo;
             }
 
         QString nombre= nombres[rand()%1000];
@@ -36,4 +38,5 @@ void HiloCrearHumanos::run(){
 
         listaMundo->insertar( id,nombre,apellido,pais,creencia,profesion,correo);
 }
+    listaMundo->generarArbol();
 }

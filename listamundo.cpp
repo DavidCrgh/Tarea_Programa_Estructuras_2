@@ -92,6 +92,22 @@ bool ListaMundo:: existeId(int id){
 
 }
 
+
+int ListaMundo:: largoLista(){
+
+    int largo=0;
+    NodoHumano* humanoTemporal= primerHumano;
+
+    while(humanoTemporal!=NULL){
+
+        largo++;
+        humanoTemporal= humanoTemporal->siguiente;
+
+    }
+
+    return largo;
+}
+
 NodoHumano* ListaMundo::buscarIdFamilia(int id){
 
     NodoHumano* humanoTemporal= primerHumano;
@@ -232,4 +248,170 @@ QString ListaMundo::paisesPecadores(QString* paises,bool cualTop){
 
       return top;
 
+}
+
+NodoHumano* ListaMundo::mitadLista(){
+
+    int largo= largoLista();
+    int contador=0;
+
+    NodoHumano* humanoTemporal= primerHumano;
+
+    while(contador<(largo/2)){
+
+        humanoTemporal=humanoTemporal->siguiente;
+        contador++;
+
+    }
+
+    return humanoTemporal;
+
+}
+
+void ListaMundo::generarArbol(){
+
+    arbolMundo->raiz=NULL;
+
+    NodoHumano* mitadHumano= mitadLista();
+    NodoHumano* humanoIzquierda= mitadHumano;
+    NodoHumano* humanoDerecha= mitadHumano;
+
+    int mitadLista= largoLista()/2;
+
+    int unoPorciento= largoLista()/100;
+
+    int desplazamiento = mitadLista/(unoPorciento/2);
+    int caca;
+    arbolMundo->raiz = arbolMundo->insertarArbolMundo(mitadHumano, arbolMundo->raiz);
+
+    while(arbolMundo->cantidadNodos(arbolMundo->raiz)< unoPorciento){
+        humanoIzquierda = desplazarPuntero(humanoIzquierda, desplazamiento, false);
+        humanoDerecha = desplazarPuntero(humanoDerecha, desplazamiento, true);
+       // desplazarPuntero(humanoIzquierda,desplazamiento, false);
+        //desplazarPuntero(humanoDerecha,desplazamiento,true);
+        //int indice=0;
+
+       // if(direccion){
+            /*while(humanoDerecha->siguiente!=NULL && indice< desplazamiento){
+
+                humanoDerecha=humanoDerecha->siguiente;
+                indice++;
+
+            }*/
+        //}
+
+        //else{
+            /*indice =0;
+            while(humanoIzquierda->anterior!=NULL && indice< desplazamiento){
+
+                humanoIzquierda=humanoIzquierda->anterior;
+                indice++;
+
+            }*/
+
+   //     }
+
+
+        arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoIzquierda, arbolMundo->raiz);
+        arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoDerecha,arbolMundo->raiz);
+        caca = arbolMundo->cantidadNodos(arbolMundo->raiz);
+
+        humanoIzquierda = desplazarPuntero(humanoIzquierda, desplazamiento/2, true);
+        humanoDerecha = desplazarPuntero(humanoDerecha, desplazamiento/2, false);
+
+        /*indice=0;
+        while(indice< desplazamiento/2){
+
+            humanoDerecha=humanoDerecha->anterior;
+            indice++;
+
+        }*/
+    //}
+
+    //else{
+        /*indice =0;
+        while(indice< desplazamiento/2){
+
+            humanoIzquierda=humanoIzquierda->siguiente;
+            indice++;
+
+        }
+
+//     }*/
+
+        arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoIzquierda, arbolMundo->raiz);
+        arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoDerecha,arbolMundo->raiz);
+        caca = arbolMundo->cantidadNodos(arbolMundo->raiz);
+
+        humanoIzquierda = desplazarPuntero(humanoIzquierda, desplazamiento/2, false);
+        humanoDerecha = desplazarPuntero(humanoDerecha, desplazamiento/2, true);
+
+
+         //indice=0;
+
+       // if(direccion){
+            /*while(humanoDerecha->siguiente!=NULL && indice< desplazamiento/2){
+
+                humanoDerecha=humanoDerecha->siguiente;
+                indice++;
+
+            }*/
+        //}
+
+        //else{
+            /*indice =0;
+            while(humanoIzquierda->anterior!=NULL && indice< desplazamiento/2){
+
+                humanoIzquierda=humanoIzquierda->anterior;
+                indice++;
+
+            }
+
+    //     }*/
+    }
+
+
+
+}
+
+NodoHumano* desplazarPuntero(NodoHumano *persona, int cantidad, bool direccion){
+    int indice=0;
+
+    if(direccion){
+        while(persona->siguiente!=NULL && indice< cantidad){
+
+            persona=persona->siguiente;
+            indice++;
+        }
+    }
+
+    else{
+        while(persona->anterior!=NULL && indice< cantidad){
+
+            persona=persona->anterior;
+            indice++;
+        }
+    }
+    return persona;
+}
+
+int ArbolMundo::cantidadNodos(NodoArbolMundo* raiz){
+
+    if(raiz==NULL)
+        return 0;
+    else
+        return 1+ cantidadNodos(raiz->derecha) + cantidadNodos(raiz->izquierda);
+
+}
+
+
+NodoArbolMundo* ArbolMundo::insertarArbolMundo(NodoHumano *humano, NodoArbolMundo* raiz){
+    if(raiz == NULL){
+        return new NodoArbolMundo(humano->id, humano);
+    } else if(raiz->id < humano->id){
+        raiz->derecha = insertarArbolMundo(humano, raiz->derecha);
+    } else if(raiz->id >= humano->id){
+        raiz->izquierda = insertarArbolMundo(humano, raiz->izquierda);
+    }
+    return raiz;
 }

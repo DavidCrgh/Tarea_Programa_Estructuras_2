@@ -26,6 +26,6 @@ QString* cargarPaises();
 QString* cargarCreencias();
 QString* cargarProfesiones();
 QString* cargarPecados();
-void popularArbolesApellido(ArbolApellidos* arreglo []);
+ArbolApellidos** popularArbolesApellido();
 
 #endif // GLOBALES_H

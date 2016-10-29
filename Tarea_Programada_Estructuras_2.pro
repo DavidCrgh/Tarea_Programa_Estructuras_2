@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     ventanacondenados.cpp \
     ventanalistamundo.cpp \
     hilocrearhumanos.cpp \
-    hilointerfaz.cpp
+    hilointerfaz.cpp \
+    arbolapellidos.cpp
 
 HEADERS  += ventanaprincipal.h \
     ventanamundo.h \
@@ -50,8 +51,7 @@ HEADERS  += ventanaprincipal.h \
     ventanalistamundo.h \
     hilocrearhumanos.h \
     hilointerfaz.h \
-    arbolapellidos.h \
-    nodoid.h
+    arbolapellidos.h
 
 FORMS    += ventanaprincipal.ui \
     ventanamundo.ui \

@@ -6,7 +6,7 @@ QString paises[242];
 QString profesiones[50];
 QString creencias[10];
 QString nombrePecado[]={"Lujuria","Gula","Avaricia","Pereza","Ira","Envidia","Soberbia"};
-
+ArbolApellidos* arbolesApellidos[1000];
 
 QString* cargarApellidos(){
 
@@ -110,11 +110,13 @@ QString* cargarPecados(){
 
 }
 
-void popularArbolesApellido(ArbolApellidos* arreglo [])
+ArbolApellidos** popularArbolesApellido()
 {
     for(int i = 0; i < 1000; i++){
-        arreglo[i] = new ArbolApellidos();
+        arbolesApellidos[i] = new ArbolApellidos();
+
     }
+    return arbolesApellidos;
 }
 
 
