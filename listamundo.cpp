@@ -144,7 +144,7 @@ QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
 
     NodoHumano* humanoTemporal= primerHumano;
     QString informacion;
-    int humano=0;
+    int humano=1;
     int indice=0;
 
     while(humanoTemporal!=NULL){

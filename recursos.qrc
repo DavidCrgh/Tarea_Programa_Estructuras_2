@@ -13,6 +13,7 @@
         <file>recursos/imagenes/country-ink-flat-icon-outline-map-russia.png</file>
         <file>recursos/imagenes/family-512.png</file>
         <file>recursos/imagenes/Man-and-Woman.png</file>
+        <file>recursos/imagenes/9188.png</file>
     </qresource>
     <qresource prefix="/datos">
         <file>recursos/datos/nombres.txt</file>

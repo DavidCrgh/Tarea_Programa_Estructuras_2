@@ -14,6 +14,7 @@ VentanaCondenarPais::VentanaCondenarPais(QWidget *parent,Infierno* pInfierno,Lis
     ui->paisesLista->addItems(listaPaises);
     infierno= pInfierno;
     listaMundo=pListaMundo;
+    ventanaError= new VentanaError();
 }
 
 VentanaCondenarPais::~VentanaCondenarPais()
@@ -25,4 +26,10 @@ void VentanaCondenarPais::on_aceptar_clicked()
 {
     QString pais= ui->paisesLista->currentText();
     infierno->condenar(pais,listaMundo);
+
+    if(infierno->arbolInfierno->raiz==NULL){
+       ventanaError->show();
+    }
+
+
 }

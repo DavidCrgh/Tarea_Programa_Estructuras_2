@@ -187,60 +187,41 @@ void ArbolSplay::insertar(NodoHumano *humano){
 }
 
 NodoArbolSplay* ArbolSplay::buscar(int id){
-
     if(!raiz){
-
         return NULL;
     }
 
     NodoArbolSplay* padre= raiz;
 
     while(padre){
-
         if(padre->id==id){
-
             break;
         }
         if(id<(padre->id)){
-
             if(padre->izquierda){
-
                 padre=padre->izquierda;
-
-
             }
             else{
-
                 break;
             }
-
         }
         else{
-
             if(padre->derecha){
-
                 padre=padre->derecha;
-
-
             }
             else{
-
                 break;
             }
-
         }
-
     }
     splay(padre);
 
     if(padre->id==id){
-
         return padre;
-
     }
-
-    else
+    else {
         return NULL;
+    }
 
 }
 
@@ -255,7 +236,6 @@ bool ArbolSplay::borrar(int id)
     if(!padre){
         raiz = borrado->derecha;
         raiz->padre = NULL;
-        free(borrado);
         return true;
     }
     while(padre->derecha){
@@ -267,12 +247,11 @@ bool ArbolSplay::borrar(int id)
     }
     raiz = borrado->izquierda;
     raiz->padre = NULL;
-    free(borrado);
     return true;
 }
 
 void Infierno::condenar(QString pPais, ListaMundo *listaMundo){
-    std::vector<NodoHumano*> heapPecadores(listaMundo->contarNacionales(pPais));// = listaMundo->generarHeapCondenados(pPais);
+    std::vector<NodoHumano*> heapPecadores(listaMundo->contarNacionales(pPais));
     heapPecadores = listaMundo->generarHeapCondenados(pPais);
     int cuartoPecadores = heapPecadores.size()/4;
 
@@ -285,7 +264,6 @@ void Infierno::condenar(QString pPais, ListaMundo *listaMundo){
                                       humanoActual->profesion, humanoActual->correo);
 
         }
-    } else {
-        qDebug("Menos de cuatro carepichas.");
     }
+
 }

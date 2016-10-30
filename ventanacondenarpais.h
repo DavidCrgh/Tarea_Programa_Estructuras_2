@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "infierno.h"
 #include "listamundo.h"
+#include "ventanaerror.h"
 
 
 
@@ -24,6 +25,7 @@ public:
     QString* paises;
     Infierno* infierno;
     ListaMundo* listaMundo;
+    VentanaError* ventanaError;
 private slots:
     void on_aceptar_clicked();
 };

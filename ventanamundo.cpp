@@ -17,10 +17,15 @@ VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres
     listaMundo=pListaMundo;
     arbolesApellidos = pArbolesApellidos;
     infierno= new Infierno();
+    paraiso = new Paraiso();
+    arbolVida = new ArbolVida();
+    hiloArbolVida = new HiloArbolVida(NULL,arbolVida,listaMundo,infierno,paraiso);
+    hiloArbolVida->start();
 
 
-    ventanaArbolVida = new VentanaArbolVida();
-    ventanaSalvados= new VentanaSalvados();
+
+    ventanaArbolVida = new VentanaArbolVida(NULL,hiloArbolVida,arbolVida);
+    ventanaSalvados= new VentanaSalvados(NULL, paraiso,nombrePecado);
     ventanaNacimiento= new VentanaNacimiento(NULL,apellidos,nombres,paises,creencias,profesiones,
                                              nombrePecado,listaMundo,arbolesApellidos);
     ventanaConsultasFamilia= new VentanaConsultasFamilia();

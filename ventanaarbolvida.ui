@@ -23,20 +23,7 @@ rgba(0,182,255,255), stop:0.329545 rgba(255,255,255,255), stop:0.670455
 rgba(255,255,255,255),stop:1 rgba(255,102,0,255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextBrowser" name="ids">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>10</y>
-      <width>321</width>
-      <height>381</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Detener">
+   <widget class="QPushButton" name="detener">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -70,7 +57,7 @@ font: 75 16pt &quot;System&quot;;</string>
      <string>Aceptar</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox">
+   <widget class="QSpinBox" name="tiempoArbol">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -98,6 +85,41 @@ background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <property name="text">
      <string>Tiempo de Generación</string>
+    </property>
+   </widget>
+   <widget class="QTreeWidget" name="treeWidget">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>10</y>
+      <width>311</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <column>
+     <property name="text">
+      <string/>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>250</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 75 16pt &quot;System&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Actualizar</string>
     </property>
    </widget>
   </widget>
