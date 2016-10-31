@@ -10,8 +10,7 @@ void Infierno::condenar(QString pPais, ListaMundo *listaMundo){
             NodoHumano* humanoActual = heapPecadores[i];
             arbolInfierno->insertar(humanoActual);
             listaMundo->borrar(humanoActual);
-            listaCondenados->insertar(humanoActual->id,humanoActual->nombre,humanoActual->apellido,humanoActual->pais,humanoActual->creencia,
-                                      humanoActual->profesion, humanoActual->correo);
+            listaCondenados->insertarNodoHumano(humanoActual);
 
         }
     }

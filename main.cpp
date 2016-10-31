@@ -3,10 +3,14 @@
 #include "globales.h"
 #include "listamundo.h"
 #include "hilointerfaz.h"
-
+#include <cstdlib>
+#include <iostream>
+using namespace  std;
 
 int main(int argc, char *argv[])
 {
+
+
  QString* apellidos=    cargarApellidos();
  QString* nombres=      cargarNombres();
  QString* paises=       cargarPaises();

@@ -47,7 +47,7 @@ QTreeWidgetItem* crearTreeWidgetItem(ArbolSplay* infierno){
 
 void VentanaCondenados::on_actualizar_clicked()
 {
-   ui->informacionCondenados->setText(infierno->listaCondenados->imprimirListaMundo(nombrePecados));
+   ui->informacionCondenados->setText(infierno->listaCondenados->listaCondenadosSalvadosOrdenada(true));
    if(infierno->arbolInfierno->raiz != NULL){
        ui->arbolSplay->clear();
        ui->arbolSplay->addTopLevelItem(crearTreeWidgetItem(infierno->arbolInfierno));

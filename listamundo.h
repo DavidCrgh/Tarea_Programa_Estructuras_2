@@ -15,7 +15,10 @@ struct ArbolMundo;
 struct ArbolApellidos;
 
 void insertion_sort (Pais* arregloPaises[], int largo);
-void ordenarPecadores(std::vector<NodoHumano*> arregloPecadores, int pLargo);
+std::vector<NodoHumano*> ordenarPecadores(std::vector<NodoHumano*> arregloPecadores, int pLargo);
+
+std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvados, int pLargo);
+
 int sumaPecadosHumano(NodoHumano* persona);
 NodoHumano* desplazarPuntero(NodoHumano* persona, int cantidad, bool direccion);
 
@@ -81,5 +84,10 @@ struct ListaMundo{
     std::vector<NodoHumano*> generarHeapCondenados(QString pPais);
 
     NodoHumano* mitadLista();
+
+    QString listaCondenadosSalvadosOrdenada(bool cualLista);
+
+
+    void insertarNodoHumano(NodoHumano* humano);
 };
 #endif // LISTAMUNDO_H

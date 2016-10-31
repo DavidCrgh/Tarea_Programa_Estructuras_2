@@ -29,6 +29,7 @@ void HiloCrearHumanos::run(){
                 id= (1.0*rand()/RAND_MAX)*maximo;
             }
 
+
         QString nombre= nombres[rand()%1000];
         QString apellido= apellidos[rand()%1000];
         QString pais= paises[rand()%242];

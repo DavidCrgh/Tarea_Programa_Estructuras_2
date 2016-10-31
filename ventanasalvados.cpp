@@ -47,7 +47,7 @@ QTreeWidgetItem* crearTreeWidgetItem(ArbolAvl* paraiso){
 
 void VentanaSalvados::on_actualizar_clicked()
 {
-   ui->informacionSalvados->setText(paraiso->listaParaiso->imprimirListaMundo(nombrePecados));
+   ui->informacionSalvados->setText(paraiso->listaParaiso->listaCondenadosSalvadosOrdenada(false));
    if(paraiso->arbolParaiso->raiz != NULL){
        ui->arbolAVL->clear();
        ui->arbolAVL->addTopLevelItem(crearTreeWidgetItem(paraiso->arbolParaiso));

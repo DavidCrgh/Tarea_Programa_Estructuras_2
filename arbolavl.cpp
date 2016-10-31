@@ -74,7 +74,7 @@ void ArbolAvl::reconstruirAvl(NodoArbolAvl *ancestro, NodoArbolAvl *nodoNuevo){
 void ArbolAvl::ajustarFactoresBalance(NodoArbolAvl *fin, NodoArbolAvl *inicio){
     NodoArbolAvl* temporal = inicio->padre;
 
-    while(temporal!= fin){
+    while(temporal!= fin&temporal!=NULL){ //condicion agregada xdxd
         if(inicio->id < temporal->id){
             temporal->factorBalance='L';
         }
