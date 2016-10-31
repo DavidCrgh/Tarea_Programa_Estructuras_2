@@ -5,13 +5,14 @@
 #include <QDebug>
 #include <stdlib.h>
 #include <vector>
+#include "nodohumano.h"
+#include "arbolavl.h"
 
 struct Pais;
-struct NodoHumano;
 struct ListaMundo;
 struct NodoArbolMundo;
 struct ArbolMundo;
-
+struct ArbolApellidos;
 
 void insertion_sort (Pais* arregloPaises[], int largo);
 void ordenarPecadores(std::vector<NodoHumano*> arregloPecadores, int pLargo);
@@ -19,7 +20,6 @@ int sumaPecadosHumano(NodoHumano* persona);
 NodoHumano* desplazarPuntero(NodoHumano* persona, int cantidad, bool direccion);
 
 struct NodoArbolMundo{
-
     int id;
     NodoHumano* humano;
     NodoArbolMundo* derecha;
@@ -31,73 +31,26 @@ struct NodoArbolMundo{
         derecha = NULL;
         izquierda = NULL;
     }
-
 };
 
 struct ArbolMundo{
-
     NodoArbolMundo* raiz;
 
     ArbolMundo(){
-
         raiz=NULL;
-
     }
-
     NodoArbolMundo* insertarArbolMundo(NodoHumano *humano, NodoArbolMundo* raiz);
     int cantidadNodos(NodoArbolMundo* raiz);
-
 };
 
 struct Pais{
-
     QString nombrePais;
     int pecadosTotales;
 
     Pais(QString pNombrePais,int pPecadosTotales){
-
         nombrePais=pNombrePais;
         pecadosTotales=pPecadosTotales;
-
     }
-
-
-};
-
-struct NodoHumano{
-    int id;
-    QString nombre;
-    QString apellido;
-    QString pais;
-    QString creencia;
-    QString profesion;
-    QString correo;
-    std::string momentoNacimiento;
-    int listaPecados[7];
-    NodoHumano* listaHijos[8];
-
-    NodoHumano* siguiente;
-    NodoHumano* anterior;
-
-    NodoHumano(int pId, QString pNombre, QString pApellido, QString pPais,
-               QString pCreencia, QString pProfesion, QString pCorreo){
-        id = pId;
-        nombre = pNombre;
-        apellido = pApellido;
-        pais = pPais;
-        creencia = pCreencia;
-        profesion = pProfesion;
-        correo = pCorreo;
-        momentoNacimiento = obtenerNacimiento();
-        for(int i = 0; i < 7; i++){
-            listaPecados[i] = 0;
-        }
-        siguiente = NULL;
-        anterior = NULL;
-    }
-
-    std::string obtenerNacimiento();
-
 };
 
 struct ListaMundo{
@@ -125,12 +78,8 @@ struct ListaMundo{
     int largoLista();
     int contarNacionales(QString pPais);
 
-   std::vector<NodoHumano*> generarHeapCondenados(QString pPais);
+    std::vector<NodoHumano*> generarHeapCondenados(QString pPais);
 
     NodoHumano* mitadLista();
 };
-
-
-
-
 #endif // LISTAMUNDO_H

@@ -1,7 +1,7 @@
 #include "hilocrearhumanos.h"
 
 HiloCrearHumanos::HiloCrearHumanos(QObject* parent,ListaMundo* pListaMundo,QString* pApellidos,QString* pNombres,QString* pPaises,
-      QString* pCreencias,QString* pProfesiones,int pCantidadHumanos, ArbolApellidos** pArbolApellidos)
+      QString* pCreencias,QString* pProfesiones,int pCantidadHumanos /*ArbolApellidos** pArbolApellidos*/)
 {
 
 listaMundo=pListaMundo;
@@ -11,7 +11,7 @@ paises=pPaises;
 creencias=pCreencias;
 profesiones=pProfesiones;
 cantidadHumanos=pCantidadHumanos;
-arbolApellidos=pArbolApellidos;
+//arbolApellidos=pArbolApellidos;
 
 }
 
