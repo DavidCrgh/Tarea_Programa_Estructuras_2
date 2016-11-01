@@ -34,6 +34,9 @@ struct NodoHumano{
         for(int i = 0; i < 7; i++){
             listaPecados[i] = 0;
         }
+        for(int i = 0; i < 8; i++){
+            listaHijos[i] = NULL;
+        }
         siguiente = NULL;
         anterior = NULL;
     }

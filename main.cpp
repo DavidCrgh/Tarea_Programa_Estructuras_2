@@ -30,8 +30,5 @@ int main(int argc, char *argv[])
     hiloInterfazPrincipal= new HiloInterfaz(NULL,w);
     hiloInterfazPrincipal->start();
 
-
-
     return a.exec();
-
 }

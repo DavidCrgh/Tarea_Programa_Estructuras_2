@@ -1,12 +1,16 @@
 #ifndef LISTAMUNDO_H
 #define LISTAMUNDO_H
 #include <string>
+#include <string.h>
 #include <ctime>
 #include <QDebug>
 #include <stdlib.h>
 #include <vector>
 #include "nodohumano.h"
 #include "arbolavl.h"
+#include "config.h"
+#include "avltest.h"
+#include "funcioneshijos.h"
 
 struct Pais;
 struct ListaMundo;
@@ -16,9 +20,7 @@ struct ArbolApellidos;
 
 void insertion_sort (Pais* arregloPaises[], int largo);
 std::vector<NodoHumano*> ordenarPecadores(std::vector<NodoHumano*> arregloPecadores, int pLargo);
-
 std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvados, int pLargo);
-
 int sumaPecadosHumano(NodoHumano* persona);
 NodoHumano* desplazarPuntero(NodoHumano* persona, int cantidad, bool direccion);
 
@@ -59,15 +61,20 @@ struct Pais{
 struct ListaMundo{
     NodoHumano* primerHumano;
     ArbolMundo* arbolMundo;
+    node* arregloArbolesApellido[1000];
 
     ListaMundo(){
         primerHumano = NULL;
         arbolMundo= new ArbolMundo();
+        for(int i = 0; i < 1000; i++){
+            arregloArbolesApellido[i] = NULL;
+        }
     }
     int cantidadHumanos();
     void sumarPecados();
     void insertar(int id,QString nombre,QString apellido,QString pais, QString creencia,
                           QString profesion,QString correo);
+    void insertar(NodoHumano* pHumano);
     void borrar(NodoHumano* borrado);
     bool existeId(int id);
     NodoHumano* buscarIdFamilia(int id);
@@ -87,6 +94,7 @@ struct ListaMundo{
 
     QString listaCondenadosSalvadosOrdenada(bool cualLista);
 
+    void asignarHijos(NodoHumano* candidato, int indiceApellido);
 
     void insertarNodoHumano(NodoHumano* humano);
 };

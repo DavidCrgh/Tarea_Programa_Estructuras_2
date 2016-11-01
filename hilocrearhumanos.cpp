@@ -24,6 +24,7 @@ void HiloCrearHumanos::run(){
 
     for(int i=0;i<cantidadHumanos;i++){
         int id= (1.0*rand()/RAND_MAX)*maximo;
+        int indiceApellido = rand()%1000;
 
             while(listaMundo->existeId(id)){
                 id= (1.0*rand()/RAND_MAX)*maximo;
@@ -31,13 +32,23 @@ void HiloCrearHumanos::run(){
 
 
         QString nombre= nombres[rand()%1000];
-        QString apellido= apellidos[rand()%1000];
+        QString apellido= apellidos[indiceApellido];
         QString pais= paises[rand()%242];
         QString creencia= creencias[rand()%10];
         QString profesion= profesiones[rand()%50];
         QString correo= "javier16contreras@hotmail.com";
 
-        listaMundo->insertar( id,nombre,apellido,pais,creencia,profesion,correo);
-}
+        NodoHumano* nuevoHumano = new NodoHumano(id,nombre,apellido,pais,creencia,profesion,correo);
+        listaMundo->insertarNodoHumano(nuevoHumano);
+        listaMundo->arregloArbolesApellido[indiceApellido] = insert(listaMundo->arregloArbolesApellido[indiceApellido],nuevoHumano);
+        listaMundo->asignarHijos(nuevoHumano,indiceApellido);
+
+        //listaMundo->arregloArbolesApellido[indiceApellido] = ins
+        //listaMundo->arregloArbolesApellido[indiceApellido] = InsertarAVL(id,listaMundo->arregloArbolesApellido[indiceApellido]);
+        //listaMundo->insertar(id,nombre,apellido,pais,creencia,profesion,correo);
+        //listaMundo->arregloArbolesApellido[indiceApellido] = insert(listaMundo->arregloArbolesApellido[indiceApellido],id);
+        //listaMundo->arregloArbolesApellido[indiceApellido]->insertar();
+    }
+
     listaMundo->generarArbol();
 }
