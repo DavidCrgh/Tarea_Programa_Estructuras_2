@@ -150,7 +150,7 @@ QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
         informacion+= "País: "+ humanoTemporal->pais+"\n";
         informacion+= "Profesión: "+ humanoTemporal->profesion+"\n";
         informacion+= "Correo: "+ humanoTemporal->correo+"\n";
-        informacion+= "Suma de Pecados en total: "+sumaPecadosHumano(humanoTemporal);
+        informacion+= "Suma de Pecados en total: "+QString::number(sumaPecadosHumano(humanoTemporal)) +"\n";
         informacion+= "Cantidad de Pecados \n";
         for(int i=0; i<7;i++){
             informacion+= listaNombrePecado[i]+"\t";
@@ -160,6 +160,14 @@ QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
             informacion+= QString::number(humanoTemporal->listaPecados[i])+"\t";
         }
         informacion+= "\n\n";
+        informacion += "Hijos:\n[";
+        for(int i = 0; i < 8; i++){
+            if(humanoTemporal->listaHijos[i] != NULL){
+                informacion += humanoTemporal->listaHijos[i]->nombre +
+                        " (" + QString::number(humanoTemporal->listaHijos[i]->id) + "), ";
+            }
+        }
+        informacion += "]\n\n";
         humanoTemporal= humanoTemporal->siguiente;
         humano++;
         indice++;
@@ -186,6 +194,25 @@ void ListaMundo::otorgarPecados(){
 
         for(int i=0;i<7;i++)
             humanoTemporal->listaPecados[i]+= arregloPecados[i];
+
+
+        for(int i = 0; i < 8; i++){
+            if(humanoTemporal->listaHijos[i] != NULL){
+                for(int j=0;j<7;j++)
+                    humanoTemporal->listaHijos[i]->listaPecados[j] += (arregloPecados[j] / 2);
+
+                for(int k = 0; k < 8; k++){
+                    if(humanoTemporal->listaHijos[i]->listaHijos[k] != NULL){
+                        for(int w=0;w<7;w++)
+                            humanoTemporal->listaHijos[i]->listaHijos[k]->listaPecados[w] += (arregloPecados[w] / 4);
+                    } else{
+                        break;
+                    }
+                }
+            } else{
+                break;
+            }
+        }
         humanoTemporal= humanoTemporal->siguiente;
     }
 
@@ -340,7 +367,7 @@ int ListaMundo::contarNacionales(QString pPais){
 QString ListaMundo::listaCondenadosSalvadosOrdenada(bool cualLista){
     QString listaNombrePecado[]={"Lujuria","Gula","Avaricia","Pereza","Ira","Envidia","Soberbia"};
 
-    int largo= largoLista();
+    int largo = largoLista();
 
     std::vector<NodoHumano*> arregloCondenadosSalvados(largo);
     NodoHumano* humanoTemporal= primerHumano;
@@ -382,6 +409,14 @@ QString ListaMundo::listaCondenadosSalvadosOrdenada(bool cualLista){
         informacion+= QString::number(humanoTemporal->listaPecados[i])+"\t";
     }
     informacion+= "\n\n";
+    informacion += "Hijos:\n[";
+    for(int i = 0; i < 8; i++){
+        if(humanoTemporal->listaHijos[i] != NULL){
+            informacion += humanoTemporal->listaHijos[i]->nombre +
+                    " (" + QString::number(humanoTemporal->listaHijos[i]->id) + "), ";
+        }
+    }
+    informacion += "]\n\n";
     indice++;
     humano++;
     }
@@ -410,17 +445,43 @@ std::vector<NodoHumano*> ListaMundo::generarHeapCondenados(QString pPais){
     return arregloPecadores;
 }
 
+int determinarPotenciaCercana(int numero)
+{
+    return (pow(2, ceil(log(numero)/log(2)))) - 1;
+}
+
 void ListaMundo::generarArbol(){
-
-    arbolMundo->raiz=NULL;
-
+    arbolMundo = NULL;
     NodoHumano* mitadHumano= mitadLista();
+    int cantidadCompleta= determinarPotenciaCercana(largoLista()/100);
+
+    arbolMundo = insert(arbolMundo, mitadHumano);
+    cantidadCompleta--;
+
+    int desplazamiento = largoLista() / cantidadCompleta;
+
     NodoHumano* humanoIzquierda= mitadHumano;
     NodoHumano* humanoDerecha= mitadHumano;
+    std::vector <NodoHumano*> arregloPecadores(cantidadCompleta);
 
-    int mitadLista= largoLista()/2;
+    for(int i = 0; i < cantidadCompleta; i++){
+        humanoDerecha = desplazarPuntero(humanoDerecha,desplazamiento,true);
+        humanoIzquierda =  desplazarPuntero(humanoIzquierda, desplazamiento,false);
+        arregloPecadores[i] = humanoDerecha;
+        arregloPecadores[++i] = humanoIzquierda;
+    }
 
-    int unoPorciento= largoLista()/100;
+    for(int i = 0; i < cantidadCompleta; i++){
+        arbolMundo = insert(arbolMundo, arregloPecadores[i]);
+    }
+    /*arbolMundo->raiz=NULL;
+
+    ;
+
+
+    ;
+
+    ;
 
     int desplazamiento = mitadLista/(unoPorciento/2);
     int caca;
@@ -429,29 +490,29 @@ void ListaMundo::generarArbol(){
     while(arbolMundo->cantidadNodos(arbolMundo->raiz)< unoPorciento){
         humanoIzquierda = desplazarPuntero(humanoIzquierda, desplazamiento, false);
         humanoDerecha = desplazarPuntero(humanoDerecha, desplazamiento, true);
-       // desplazarPuntero(humanoIzquierda,desplazamiento, false);
-        //desplazarPuntero(humanoDerecha,desplazamiento,true);
-        //int indice=0;
+       desplazarPuntero(humanoIzquierda,desplazamiento, false);
+        desplazarPuntero(humanoDerecha,desplazamiento,true);
+        int indice=0;
 
-       // if(direccion){
-            /*while(humanoDerecha->siguiente!=NULL && indice< desplazamiento){
+        if(direccion){
+            while(humanoDerecha->siguiente!=NULL && indice< desplazamiento){
 
                 humanoDerecha=humanoDerecha->siguiente;
                 indice++;
 
-            }*/
-        //}
+            }
+        }
 
-        //else{
-            /*indice =0;
+        else{
+            indice =0;
             while(humanoIzquierda->anterior!=NULL && indice< desplazamiento){
 
                 humanoIzquierda=humanoIzquierda->anterior;
                 indice++;
 
-            }*/
+            }
 
-   //     }
+        }
 
 
         arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoIzquierda, arbolMundo->raiz);
@@ -460,17 +521,17 @@ void ListaMundo::generarArbol(){
         humanoIzquierda = desplazarPuntero(humanoIzquierda, desplazamiento/2, true);
         humanoDerecha = desplazarPuntero(humanoDerecha, desplazamiento/2, false);
 
-        /*indice=0;
+        indice=0;
         while(indice< desplazamiento/2){
 
             humanoDerecha=humanoDerecha->anterior;
             indice++;
 
-        }*/
-    //}
+        }
+    }
 
-    //else{
-        /*indice =0;
+    else{
+        indice =0;
         while(indice< desplazamiento/2){
 
             humanoIzquierda=humanoIzquierda->siguiente;
@@ -478,7 +539,7 @@ void ListaMundo::generarArbol(){
 
         }
 
-//     }*/
+     }
 
         arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoIzquierda, arbolMundo->raiz);
         arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoDerecha,arbolMundo->raiz);
@@ -487,19 +548,19 @@ void ListaMundo::generarArbol(){
         humanoDerecha = desplazarPuntero(humanoDerecha, desplazamiento/2, true);
 
 
-         //indice=0;
+         indice=0;
 
-       // if(direccion){
-            /*while(humanoDerecha->siguiente!=NULL && indice< desplazamiento/2){
+        if(direccion){
+            while(humanoDerecha->siguiente!=NULL && indice< desplazamiento/2){
 
                 humanoDerecha=humanoDerecha->siguiente;
                 indice++;
 
-            }*/
-        //}
+            }
+        }
 
-        //else{
-            /*indice =0;
+        else{
+            indice =0;
             while(humanoIzquierda->anterior!=NULL && indice< desplazamiento/2){
 
                 humanoIzquierda=humanoIzquierda->anterior;
@@ -507,8 +568,7 @@ void ListaMundo::generarArbol(){
 
             }
 
-    //     }*/
-    }
+         }*/
 }
 
 NodoHumano* desplazarPuntero(NodoHumano *persona, int cantidad, bool direccion){

@@ -11,8 +11,6 @@ paises=pPaises;
 creencias=pCreencias;
 profesiones=pProfesiones;
 cantidadHumanos=pCantidadHumanos;
-//arbolApellidos=pArbolApellidos;
-
 }
 
 
@@ -30,7 +28,6 @@ void HiloCrearHumanos::run(){
                 id= (1.0*rand()/RAND_MAX)*maximo;
             }
 
-
         QString nombre= nombres[rand()%1000];
         QString apellido= apellidos[indiceApellido];
         QString pais= paises[rand()%242];
@@ -42,13 +39,6 @@ void HiloCrearHumanos::run(){
         listaMundo->insertarNodoHumano(nuevoHumano);
         listaMundo->arregloArbolesApellido[indiceApellido] = insert(listaMundo->arregloArbolesApellido[indiceApellido],nuevoHumano);
         listaMundo->asignarHijos(nuevoHumano,indiceApellido);
-
-        //listaMundo->arregloArbolesApellido[indiceApellido] = ins
-        //listaMundo->arregloArbolesApellido[indiceApellido] = InsertarAVL(id,listaMundo->arregloArbolesApellido[indiceApellido]);
-        //listaMundo->insertar(id,nombre,apellido,pais,creencia,profesion,correo);
-        //listaMundo->arregloArbolesApellido[indiceApellido] = insert(listaMundo->arregloArbolesApellido[indiceApellido],id);
-        //listaMundo->arregloArbolesApellido[indiceApellido]->insertar();
     }
-
     listaMundo->generarArbol();
 }

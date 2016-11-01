@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <stdlib.h>
 #include <vector>
+#include <math.h>
 #include "nodohumano.h"
 #include "arbolavl.h"
 #include "config.h"
@@ -23,6 +24,7 @@ std::vector<NodoHumano*> ordenarPecadores(std::vector<NodoHumano*> arregloPecado
 std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvados, int pLargo);
 int sumaPecadosHumano(NodoHumano* persona);
 NodoHumano* desplazarPuntero(NodoHumano* persona, int cantidad, bool direccion);
+int determinarPotenciaCercana(int numero);
 
 struct NodoArbolMundo{
     int id;
@@ -60,12 +62,12 @@ struct Pais{
 
 struct ListaMundo{
     NodoHumano* primerHumano;
-    ArbolMundo* arbolMundo;
+    node* arbolMundo;
     node* arregloArbolesApellido[1000];
 
     ListaMundo(){
         primerHumano = NULL;
-        arbolMundo= new ArbolMundo();
+        arbolMundo = NULL;
         for(int i = 0; i < 1000; i++){
             arregloArbolesApellido[i] = NULL;
         }
@@ -82,6 +84,7 @@ struct ListaMundo{
     void otorgarPecados();
 
     QString paisesPecadores(QString* paises,bool top);
+
 
     void generarArbol();
 
