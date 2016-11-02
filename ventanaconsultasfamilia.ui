@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>622</width>
+    <width>934</width>
     <height>461</height>
    </rect>
   </property>
@@ -68,6 +68,19 @@ font: 75 16pt &quot;System&quot;;	</string>
     </property>
     <property name="text">
      <string>Aceptar</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="infoFamilia">
+    <property name="geometry">
+     <rect>
+      <x>225</x>
+      <y>11</y>
+      <width>701</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
   </widget>

@@ -19,6 +19,8 @@ struct NodoArbolMundo;
 struct ArbolMundo;
 struct ArbolApellidos;
 
+QString imprimirNodo(NodoHumano* persona);
+NodoHumano* buscarAuxiliar(NodoHumano *inicio,NodoHumano *fin,int id);
 void insertion_sort (Pais* arregloPaises[], int largo);
 std::vector<NodoHumano*> ordenarPecadores(std::vector<NodoHumano*> arregloPecadores, int pLargo);
 std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvados, int pLargo);
@@ -82,9 +84,9 @@ struct ListaMundo{
     NodoHumano* buscarIdFamilia(int id);
     QString imprimirListaMundo(QString* listaNombrePecados);
     void otorgarPecados();
-
+    NodoHumano* buscar(int id, node* raiz);
     QString paisesPecadores(QString* paises,bool top);
-
+    void reemplazarHumano(int id, node* raiz);
 
     void generarArbol();
 
@@ -100,5 +102,6 @@ struct ListaMundo{
     void asignarHijos(NodoHumano* candidato, int indiceApellido);
 
     void insertarNodoHumano(NodoHumano* humano);
+
 };
 #endif // LISTAMUNDO_H

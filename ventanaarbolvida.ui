@@ -112,7 +112,7 @@ background-color: rgba(255, 255, 255, 0);</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>250</y>
+      <y>280</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -123,6 +123,23 @@ font: 75 16pt &quot;System&quot;;</string>
     </property>
     <property name="text">
      <string>Actualizar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>240</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 75 16pt &quot;System&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Reiniciar</string>
     </property>
    </widget>
   </widget>

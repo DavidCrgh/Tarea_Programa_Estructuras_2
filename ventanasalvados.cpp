@@ -15,40 +15,40 @@ VentanaSalvados::~VentanaSalvados()
     delete ui;
 }
 
-void agregarHijos(QTreeWidgetItem* item, NodoArbolAvl* raiz){
+void agregarHijos(QTreeWidgetItem* item, node* raiz){
     if(raiz != NULL){
-        if(raiz->derecha != NULL){
+        if(raiz->right != NULL){
             QStringList lista;
-            lista.append(QString::number(raiz->derecha->id));
-            lista.append(raiz->derecha->humano->pais);
+            lista.append(QString::number(raiz->right->humano->id));
+            lista.append(raiz->right->humano->pais);
             QTreeWidgetItem* hijo = new QTreeWidgetItem(lista,0);
             item->addChild(hijo);
-            agregarHijos(hijo, raiz->derecha);
+            agregarHijos(hijo, raiz->right);
         }
-        if(raiz->izquierda != NULL){
+        if(raiz->left != NULL){
             QStringList lista;
-            lista.append(QString::number(raiz->izquierda->id));
-            lista.append(raiz->izquierda->humano->pais);
+            lista.append(QString::number(raiz->left->humano->id));
+            lista.append(raiz->left->humano->pais);
             QTreeWidgetItem* hijo = new QTreeWidgetItem(lista,0);
             item->addChild(hijo);
-            agregarHijos(hijo, raiz->izquierda);
+            agregarHijos(hijo, raiz->left);
         }
     }
 }
 
-QTreeWidgetItem* crearTreeWidgetItem(ArbolAvl* paraiso){
+QTreeWidgetItem* crearTreeWidgetItem(node* paraiso){
     QStringList lista;
-    lista.append(QString::number(paraiso->raiz->id));
-    lista.append(paraiso->raiz->humano->pais);
+    lista.append(QString::number(paraiso->humano->id));
+    lista.append(paraiso->humano->pais);
     QTreeWidgetItem* raiz = new QTreeWidgetItem(lista,0);
-    agregarHijos(raiz,paraiso->raiz);
+    agregarHijos(raiz,paraiso);
     return raiz;
 }
 
 void VentanaSalvados::on_actualizar_clicked()
 {
    ui->informacionSalvados->setText(paraiso->listaParaiso->listaCondenadosSalvadosOrdenada(false));
-   if(paraiso->arbolParaiso->raiz != NULL){
+   if(paraiso->arbolParaiso != NULL){
        ui->arbolAVL->clear();
        ui->arbolAVL->addTopLevelItem(crearTreeWidgetItem(paraiso->arbolParaiso));
    }

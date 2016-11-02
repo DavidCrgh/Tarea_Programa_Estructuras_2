@@ -1,6 +1,7 @@
 #ifndef ARBOLVIDA_H
 #define ARBOLVIDA_H
 #include <cstdlib>
+//#include "listamundo.h"
 
 struct NodoVida{
     int id;

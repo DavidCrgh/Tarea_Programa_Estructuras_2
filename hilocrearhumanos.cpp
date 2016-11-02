@@ -1,7 +1,7 @@
 #include "hilocrearhumanos.h"
 
 HiloCrearHumanos::HiloCrearHumanos(QObject* parent,ListaMundo* pListaMundo,QString* pApellidos,QString* pNombres,QString* pPaises,
-      QString* pCreencias,QString* pProfesiones,int pCantidadHumanos /*ArbolApellidos** pArbolApellidos*/)
+      QString* pCreencias,QString* pProfesiones,int pCantidadHumanos,ArbolVida* pArbolVida,Paraiso* pParaiso)
 {
 
 listaMundo=pListaMundo;
@@ -11,6 +11,8 @@ paises=pPaises;
 creencias=pCreencias;
 profesiones=pProfesiones;
 cantidadHumanos=pCantidadHumanos;
+arbolVida=pArbolVida;
+paraiso=pParaiso;
 }
 
 
@@ -36,9 +38,16 @@ void HiloCrearHumanos::run(){
         QString correo= "javier16contreras@hotmail.com";
 
         NodoHumano* nuevoHumano = new NodoHumano(id,nombre,apellido,pais,creencia,profesion,correo);
-        listaMundo->insertarNodoHumano(nuevoHumano);
-        listaMundo->arregloArbolesApellido[indiceApellido] = insert(listaMundo->arregloArbolesApellido[indiceApellido],nuevoHumano);
-        listaMundo->asignarHijos(nuevoHumano,indiceApellido);
+        if(arbolVida->buscar(nuevoHumano->id,arbolVida->raiz)){
+            paraiso->arbolParaiso= insert(paraiso->arbolParaiso,nuevoHumano);
+            paraiso->listaParaiso->insertarNodoHumano(nuevoHumano);
+
+        }
+        else{
+            listaMundo->insertarNodoHumano(nuevoHumano);
+            listaMundo->arregloArbolesApellido[indiceApellido] = insert(listaMundo->arregloArbolesApellido[indiceApellido],nuevoHumano);
+            listaMundo->asignarHijos(nuevoHumano,indiceApellido);
+        }
     }
     listaMundo->generarArbol();
 }

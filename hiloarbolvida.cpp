@@ -30,11 +30,20 @@ void HiloArbolVida::run(){
         if(buscadoInfierno != NULL){
             infierno->arbolInfierno->borrar(id);
             infierno->listaCondenados->borrar(buscadoInfierno->humano);
-            paraiso->arbolParaiso->insertar(buscadoInfierno->humano);
+            paraiso->arbolParaiso=insert(paraiso->arbolParaiso,buscadoInfierno->humano);
             paraiso->listaParaiso->insertar(buscadoInfierno->humano->id, buscadoInfierno->humano->nombre, buscadoInfierno->humano->apellido,
                                             buscadoInfierno->humano->pais,buscadoInfierno->humano->creencia, buscadoInfierno->humano->profesion,
                                             buscadoInfierno->humano->correo);
         }
 
+        if(mundo->arbolMundo != NULL){
+            NodoHumano* buscadoMundo = mundo->buscar(id,mundo->arbolMundo);
+            if(buscadoMundo != NULL){
+                mundo->reemplazarHumano(buscadoMundo->id, mundo->arbolMundo);
+                mundo->borrar(buscadoMundo);
+                paraiso->arbolParaiso = insert(paraiso->arbolParaiso, buscadoMundo);
+                paraiso->listaParaiso->insertar(buscadoMundo);
+            }
+        }
     }
 }

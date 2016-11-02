@@ -63,5 +63,12 @@ void VentanaArbolVida::on_detener_clicked()
 void VentanaArbolVida::on_pushButton_clicked()
 {
     ui->treeWidget->clear();
+    if(arbolVida->raiz != NULL){
     ui->treeWidget->addTopLevelItem(crearTreeWidgetItem(arbolVida));
+    }
+}
+
+void VentanaArbolVida::on_pushButton_2_clicked()
+{
+    arbolVida->limpiarArbol();
 }

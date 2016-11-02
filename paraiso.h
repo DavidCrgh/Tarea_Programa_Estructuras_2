@@ -2,13 +2,14 @@
 #define PARAISO_H
 #include "arbolavl.h"
 #include "listamundo.h"
+#include "avltest.h"
 
 struct Paraiso{
-    ArbolAvl* arbolParaiso;
+    node * arbolParaiso;
     ListaMundo* listaParaiso;
 
     Paraiso(){
-        arbolParaiso= new ArbolAvl();
+        arbolParaiso= NULL;
         listaParaiso= new ListaMundo();
     }
 };
