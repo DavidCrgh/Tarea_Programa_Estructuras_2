@@ -11,8 +11,17 @@ VentanaNacimiento::VentanaNacimiento(QWidget *parent,QString* pApellidos, QStrin
     ui(new Ui::VentanaNacimiento)
 {
     ui->setupUi(this);
-    ui->casillaHumanos->setRange(0,9999999);
+    QStringList listaApellidos;
     apellidos= pApellidos;
+
+    for(int i=0;i<1000;i++)
+        listaApellidos.append(apellidos[i]);
+
+    ui->cBoxApellidos->addItems(listaApellidos);
+
+
+
+    ui->casillaHumanos->setRange(0,9999999);
     nombres=pNombres;
     paises=pPaises;
     creencias=pCreencias;

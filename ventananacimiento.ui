@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>370</width>
-    <height>218</height>
+    <width>811</width>
+    <height>502</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -72,41 +72,6 @@ font: 75 16pt &quot;System&quot;;
      <string>Aceptar</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>170</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-font: 11pt &quot;Californian FB&quot;;
-background-color: rgba(255, 255, 255, 0);</string>
-    </property>
-    <property name="text">
-     <string>Total de Humanos:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="cantidadHumanos">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>180</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-font: 11pt &quot;Californian FB&quot;;</string>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="botonHumanos">
     <property name="geometry">
      <rect>
@@ -124,6 +89,124 @@ font: 75 16pt &quot;System&quot;;
     <property name="text">
      <string>Humanos</string>
     </property>
+   </widget>
+   <widget class="QTreeWidget" name="displayArbol">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>30</y>
+      <width>421</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <column>
+     <property name="text">
+      <string>Id</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>230</y>
+      <width>291</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255, 0);
+font: 14pt &quot;Californian FB&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Árbol:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="botonMundo">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255, 0);
+font: 11pt &quot;Californian FB&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Mundo</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QRadioButton" name="botonApellidos">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);
+font: 11pt &quot;Californian FB&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Apellidos</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cBoxApellidos"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>170</y>
+      <width>174</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">
+font: 11pt &quot;Californian FB&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+       </property>
+       <property name="text">
+        <string>Total de Humanos:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="cantidadHumanos">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255, 0);
+font: 11pt &quot;Californian FB&quot;;</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>

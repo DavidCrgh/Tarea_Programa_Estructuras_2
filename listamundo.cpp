@@ -139,9 +139,6 @@ bool ListaMundo:: existeId(int id){
 
     }
 */
-
-
-
 }
 
 int ListaMundo:: largoLista(){
