@@ -21,7 +21,7 @@ class VentanaNacimiento : public QMainWindow
 public:
     explicit VentanaNacimiento(QWidget *parent = 0,QString * apellidos=0,QString* nombres=0,QString*paises=0,
      QString* creencias=0,QString* profesiones=0,QString* nombrePecado=0,ListaMundo* listaMundo=0,
-                               ArbolVida* arbolVida=0,Paraiso* paraiso =0);
+                               ArbolVida* arbolVida=0,Paraiso* paraiso =0,QString* continentes=0);
     ~VentanaNacimiento();
 
 public:
@@ -32,6 +32,7 @@ public:
     QString* creencias;
     QString* profesiones;
     QString* nombrePecado;
+    QString* continentes;
     ListaMundo* listaMundo;
     VentanaListaMundo* ventanaHumanos;
     HiloCrearHumanos* hiloCrearHumanos;

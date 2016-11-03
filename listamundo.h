@@ -18,7 +18,10 @@ struct ListaMundo;
 struct NodoArbolMundo;
 struct ArbolMundo;
 struct ArbolApellidos;
+struct Continente;
 
+std::vector<Continente*> ordenarContinentes(std::vector<Continente*> arregloContinentes);
+QString determinarCorreoHumano(QString continente);
 QString imprimirNodo(NodoHumano* persona);
 NodoHumano* buscarAuxiliar(NodoHumano *inicio,NodoHumano *fin,int id);
 void insertion_sort (Pais* arregloPaises[], int largo);
@@ -27,6 +30,20 @@ std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvado
 int sumaPecadosHumano(NodoHumano* persona);
 NodoHumano* desplazarPuntero(NodoHumano* persona, int cantidad, bool direccion);
 int determinarPotenciaCercana(int numero);
+
+
+struct Continente{
+
+    QString nombreContinente;
+    int pecadosTotales;
+
+    Continente(QString pNombreContinente,int pPecadosTotales){
+        nombreContinente=pNombreContinente;
+        pecadosTotales=pPecadosTotales;
+    }
+
+
+};
 
 struct NodoArbolMundo{
     int id;
@@ -95,6 +112,7 @@ struct ListaMundo{
     QString listaCondenadosSalvadosOrdenada(bool cualLista);
     void asignarHijos(NodoHumano* candidato, int indiceApellido);
     void insertarNodoHumano(NodoHumano* humano);
+    std::vector <Continente*> mapaCalor();
 
 };
 #endif // LISTAMUNDO_H

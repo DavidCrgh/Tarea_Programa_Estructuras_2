@@ -34,7 +34,7 @@ class VentanaMundo : public QWidget
 public:
     explicit VentanaMundo(QWidget *parent = 0,QString*apellidos=0,QString*nombres=0,
      QString* paises=0, QString*creencias=0, QString*profesiones=0,QString*nombrePecado=0,
-     ListaMundo*listaMundo=0/*ArbolApellidos** arbolesApellidos=0*/);//, ArbolApellidos* pArbolesApellidos[] = 0);
+     ListaMundo*listaMundo=0,QString* continentes=0/*ArbolApellidos** arbolesApellidos=0*/);//, ArbolApellidos* pArbolesApellidos[] = 0);
     ~VentanaMundo();
 
 private slots:
@@ -72,6 +72,7 @@ public:
     QString*creencias;
     QString*profesiones;
     QString* nombrePecado;
+    QString* continentes;
     ArbolVida* arbolVida;
     ListaMundo* listaMundo;
     //ArbolApellidos** arbolesApellidos;

@@ -5,6 +5,7 @@ QString nombres [1000];
 QString paises[242];
 QString profesiones[50];
 QString creencias[10];
+QString continentes[242];
 QString nombrePecado[]={"Lujuria","Gula","Avaricia","Pereza","Ira","Envidia","Soberbia"};
 //ArbolApellidos* arbolesApellidos[1000];
 
@@ -25,6 +26,25 @@ QString* cargarApellidos(){
        inputFile.close();
     }
     return apellidos;
+}
+
+QString* cargarContinentes(){
+
+    QFile inputFile(":/datos/recursos/datos/continentes.txt");
+    if (inputFile.open(QIODevice::ReadOnly))
+    {
+       QTextStream in(&inputFile);
+       int indice=0;
+       while (!in.atEnd())
+       {
+          QString line = in.readLine();
+          continentes[indice]=line;
+          indice++;
+       }
+
+       inputFile.close();
+    }
+    return continentes;
 }
 
 QString* cargarNombres(){

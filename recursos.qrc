@@ -14,6 +14,31 @@
         <file>recursos/imagenes/family-512.png</file>
         <file>recursos/imagenes/Man-and-Woman.png</file>
         <file>recursos/imagenes/9188.png</file>
+        <file>recursos/imagenes/amarilloafrica.png</file>
+        <file>recursos/imagenes/amarilloamerica.png</file>
+        <file>recursos/imagenes/amarilloasia.png</file>
+        <file>recursos/imagenes/amarilloeuropa.png</file>
+        <file>recursos/imagenes/amarillooceania.png</file>
+        <file>recursos/imagenes/anaranjadoafrica.png</file>
+        <file>recursos/imagenes/anaranjadoamerica.png</file>
+        <file>recursos/imagenes/anaranjadoasia.png</file>
+        <file>recursos/imagenes/anaranjadoeuropa.png</file>
+        <file>recursos/imagenes/anaranjadooceania.png</file>
+        <file>recursos/imagenes/rojoafrica.png</file>
+        <file>recursos/imagenes/rojoamerica.png</file>
+        <file>recursos/imagenes/rojoasia.png</file>
+        <file>recursos/imagenes/rojoeuropa.png</file>
+        <file>recursos/imagenes/rojooceania.png</file>
+        <file>recursos/imagenes/verdeafrica.png</file>
+        <file>recursos/imagenes/verdeamerica.png</file>
+        <file>recursos/imagenes/verdeasia.png</file>
+        <file>recursos/imagenes/verdeeuropa.png</file>
+        <file>recursos/imagenes/verdeoceania.png</file>
+        <file>recursos/imagenes/negroafrica.png</file>
+        <file>recursos/imagenes/negroamerica.png</file>
+        <file>recursos/imagenes/negroasia.png</file>
+        <file>recursos/imagenes/negroeuropa.png</file>
+        <file>recursos/imagenes/negrooceania.png</file>
     </qresource>
     <qresource prefix="/datos">
         <file>recursos/datos/nombres.txt</file>
@@ -21,5 +46,6 @@
         <file>recursos/datos/paises.txt</file>
         <file>recursos/datos/profesiones.txt</file>
         <file>recursos/datos/religiones.txt</file>
+        <file>recursos/datos/continentes.txt</file>
     </qresource>
 </RCC>

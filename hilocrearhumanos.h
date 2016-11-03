@@ -14,7 +14,8 @@ class HiloCrearHumanos : public QThread
     Q_OBJECT
 public:
     HiloCrearHumanos(QObject* parent=0,ListaMundo* listaMundo=0,QString* apellidos=0,QString* nombres=0,QString* paises=0,
-        QString* creencias=0,QString* profesiones=0,int cantidadHumanos=0,ArbolVida* arbolVida=0,Paraiso* paraiso=0);
+        QString* creencias=0,QString* profesiones=0,int cantidadHumanos=0,ArbolVida* arbolVida=0,Paraiso* paraiso=0,
+                     QString* continentes=0);
         ListaMundo* listaMundo;
         QString* apellidos;
         QString* nombres;
@@ -24,6 +25,7 @@ public:
         int cantidadHumanos;
         ArbolVida* arbolVida;
         Paraiso* paraiso;
+        QString* continentes;
         //ArbolApellidos** arbolApellidos;
     void run();
 };

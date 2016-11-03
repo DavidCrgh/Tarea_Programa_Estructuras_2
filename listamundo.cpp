@@ -2,6 +2,31 @@
 
 using namespace std;
 
+
+QString determinarCorreoHumano(QString continente){
+
+QString america= "mundoamerica2016@gmail.com";
+QString europa= "mundoeuropa2016@gmail.com";
+QString asia= "mundoasia2016@gmail.com";
+QString africa= "mundoafrica2016@gmail.com";
+QString oceania="mundooceania2016@gmail.com";
+
+    if(continente=="America")
+        return america;
+    else if(continente=="Europa")
+        return europa;
+     else if(continente=="Asia")
+        return asia;
+     else if(continente== "Africa")
+        return africa;
+     else if(continente=="Oceania")
+        return oceania;
+     else
+        return "Ninguno";
+
+}
+
+
 int ListaMundo::cantidadHumanos(){
     NodoHumano* nodoPersonaTemporal=primerHumano;
 
@@ -339,11 +364,13 @@ QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
         informacion+= "ID: "+QString::number(humanoTemporal->id)+"\n";
        // informacion+= QString ::fromStdString(humanoTemporal->momentoNacimiento)+"\n";
        // informacion+= "Creencia: "+ humanoTemporal->creencia+"\n";
-       // informacion+= "País: "+ humanoTemporal->pais+"\n";
+        informacion+= "País: "+ humanoTemporal->pais+"\n";
+        informacion+= "Continente: "+humanoTemporal->continente+"\n";
+
         //informacion+= "Profesión: "+ humanoTemporal->profesion+"\n";
-        //informacion+= "Correo: "+ humanoTemporal->correo+"\n";
+        informacion+= "Correo: "+ humanoTemporal->correo+"\n";
         //informacion+= "Suma de Pecados en total: "+QString::number(sumaPecadosHumano(humanoTemporal)) +"\n";
-        informacion+= "Cantidad de Pecados \n";
+       // informacion+= "Cantidad de Pecados \n";
         //for(int i=0; i<7;i++){
          //   informacion+= listaNombrePecado[i]+"\t";
        // }
@@ -478,6 +505,60 @@ std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvado
         }
     }
     return arregloSalvados;
+}
+
+std::vector<Continente*> ordenarContinentes(std::vector<Continente*> arregloContinentes){
+
+    int j;
+    Continente* temporal;
+
+    for(int i = 0; i < 5; i++){
+        j = i;
+
+        Continente* continenteJ= arregloContinentes[j];
+        Continente* continenteK= arregloContinentes[j-1];
+
+        while(j > 0 && continenteJ->pecadosTotales > continenteK->pecadosTotales){
+            temporal = arregloContinentes[j];
+            arregloContinentes[j] = arregloContinentes[j-1];
+            arregloContinentes[j-1] = temporal;
+            j--;
+            continenteJ= arregloContinentes[j];
+            continenteK= arregloContinentes[j-1];
+        }
+    }
+    return arregloContinentes;
+
+
+}
+
+std::vector<Continente*> ListaMundo::mapaCalor(){
+    std::vector <Continente*> continentes(5);
+
+    QString arregloContinentes[]={"America","Europa","Asia","Africa","Oceania"};
+
+    for(int i=0;i<5;i++){
+        int contador=0;
+    NodoHumano* humanoTemporal= primerHumano;
+
+        while(humanoTemporal!=NULL){
+
+            if(humanoTemporal->continente== arregloContinentes[i]){
+
+                contador+=sumaPecadosHumano(humanoTemporal);
+
+            }
+            humanoTemporal=humanoTemporal->siguiente;
+
+        }
+
+        continentes[i]= new Continente(arregloContinentes[i],contador);
+    }
+
+    continentes= ordenarContinentes(continentes);
+
+    return continentes;
+
 }
 
 QString ListaMundo::paisesPecadores(QString* paises,bool cualTop){

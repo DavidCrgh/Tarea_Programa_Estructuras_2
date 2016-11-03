@@ -3,7 +3,7 @@
 
 VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres,QString* pPaises,
                            QString* pCreencias, QString* pProfesiones,QString* pNombrePecado,
-                           ListaMundo* pListaMundo/*,ArbolApellidos ** pArbolesApellidos*/):
+                           ListaMundo* pListaMundo,QString* pContinentes/*,ArbolApellidos ** pArbolesApellidos*/):
     QWidget(parent),
     ui(new Ui::VentanaMundo)
 {
@@ -15,6 +15,7 @@ VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres
     profesiones = pProfesiones;
     nombrePecado = pNombrePecado;
     listaMundo = pListaMundo;
+    continentes=pContinentes;
     infierno = new Infierno();
     paraiso = new Paraiso();
     arbolVida = new ArbolVida();
@@ -24,11 +25,11 @@ VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres
     ventanaArbolVida = new VentanaArbolVida(NULL,hiloArbolVida,arbolVida);
     ventanaSalvados = new VentanaSalvados(NULL, paraiso,nombrePecado);
     ventanaNacimiento = new VentanaNacimiento(NULL,apellidos,nombres,paises,creencias,profesiones,
-                                             nombrePecado,listaMundo,arbolVida,paraiso);
+                                             nombrePecado,listaMundo,arbolVida,paraiso,continentes);
     ventanaConsultasFamilia = new VentanaConsultasFamilia(NULL,listaMundo);
     ventanaTop10 = new VentanaTop10Pecadores(NULL,listaMundo,paises);
     ventanaTop5 = new VentanaTop5Salvados(NULL,listaMundo,paises);
-    ventanaContinentes = new VentanaContinentes();
+    ventanaContinentes = new VentanaContinentes(NULL,listaMundo);
     ventanaPecadores = new VentanaPecadores();
     ventanaConsultaApellido = new VentanaConsultaApellido();
     ventanaCondenarPais = new VentanaCondenarPais(NULL,infierno,listaMundo,paises);
