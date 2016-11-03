@@ -12,11 +12,16 @@ class VentanaPecadores : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit VentanaPecadores(QWidget *parent = 0);
+    explicit VentanaPecadores(QWidget *parent = 0,QString* paises=0,QString* apellidos=0,QString* creencias=0,
+                              QString* profesiones=0);
     ~VentanaPecadores();
 
-private:
+public:
     Ui::VentanaPecadores *ui;
+    QString* paises;
+    QString* apellidos;
+    QString* creencias;
+    QString* profesiones;
 };
 
 #endif // VENTANAPECADORES_H

@@ -39,4 +39,5 @@ node* removemin(node* p);
 node* remove(node* p, int k);
 node* randomNode(node* p);
 int countNodes(node* p);
+bool buscar(int id,node* raiz);
 #endif // AVLTEST_H

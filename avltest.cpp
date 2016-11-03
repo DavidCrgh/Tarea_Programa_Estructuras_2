@@ -128,3 +128,25 @@ int countNodes(node *p){
         return 1 + countNodes(p->left) + countNodes(p->right);
     }
 }
+
+bool buscar(int id,node*persona){
+
+    if(persona==NULL){
+        return false;
+    }
+
+   else if(id==persona->humano->id){
+        return true;
+
+    }
+    else if(id>persona->humano->id){
+        return buscar(id,persona->right);
+
+    }
+    else{
+        return buscar(id,persona->left);
+
+    }
+
+
+}

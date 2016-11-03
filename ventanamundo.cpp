@@ -30,7 +30,7 @@ VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres
     ventanaTop10 = new VentanaTop10Pecadores(NULL,listaMundo,paises);
     ventanaTop5 = new VentanaTop5Salvados(NULL,listaMundo,paises);
     ventanaContinentes = new VentanaContinentes(NULL,listaMundo);
-    ventanaPecadores = new VentanaPecadores();
+    ventanaPecadores = new VentanaPecadores(NULL,paises,apellidos,creencias,profesiones);
     ventanaConsultaApellido = new VentanaConsultaApellido();
     ventanaCondenarPais = new VentanaCondenarPais(NULL,infierno,listaMundo,paises);
     ventanaCondenados = new VentanaCondenados(NULL,infierno,nombrePecado);

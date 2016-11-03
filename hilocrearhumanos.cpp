@@ -1,7 +1,7 @@
 #include "hilocrearhumanos.h"
 
 HiloCrearHumanos::HiloCrearHumanos(QObject* parent,ListaMundo* pListaMundo,QString* pApellidos,QString* pNombres,QString* pPaises,
-      QString* pCreencias,QString* pProfesiones,int pCantidadHumanos,ArbolVida* pArbolVida,Paraiso* pParaiso,QString* pContinentes)
+      QString* pCreencias,QString* pProfesiones,ArbolVida* pArbolVida,Paraiso* pParaiso,QString* pContinentes)
 {
 
 listaMundo=pListaMundo;
@@ -10,15 +10,26 @@ nombres=pNombres;
 paises=pPaises;
 creencias=pCreencias;
 profesiones=pProfesiones;
-cantidadHumanos=pCantidadHumanos;
 arbolVida=pArbolVida;
 paraiso=pParaiso;
 continentes=pContinentes;
+arbolIds= new ArbolVida();
+
+cantidadHumanos=0;
+bool stop= false;
+bool pause=false;
+
 }
 
 
 
 void HiloCrearHumanos::run(){
+while(!stop){
+
+    while(pause){
+
+        msleep(10);
+    }
 
     srand(time(NULL));
     int maximo= 10000000;
@@ -27,9 +38,11 @@ void HiloCrearHumanos::run(){
         int id= (1.0*rand()/RAND_MAX)*maximo;
         int indiceApellido = rand()%1000;
 
-            while(listaMundo->existeId(id)){
+            while(arbolIds->buscar(id,arbolIds->raiz)){
                 id= (1.0*rand()/RAND_MAX)*maximo;
             }
+        arbolIds->raiz= arbolIds->insertar(id,arbolIds->raiz);
+
         int randomContinentePais= rand()%242;
 
         QString nombre= nombres[rand()%1000];
@@ -54,4 +67,6 @@ void HiloCrearHumanos::run(){
         }
     }
     listaMundo->generarArbol();
+    pause=true;
+}
 }
