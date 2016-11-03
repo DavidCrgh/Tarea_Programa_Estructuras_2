@@ -24,6 +24,7 @@ struct ArbolVida{
 
     NodoVida* insertar(int pId, NodoVida* nodo);
     bool buscar(int pId, NodoVida* nodo);
+    int contarNodos(NodoVida* nodo);
     void limpiarArbol();
 };
 

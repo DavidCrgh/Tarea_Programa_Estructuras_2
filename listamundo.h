@@ -81,26 +81,19 @@ struct ListaMundo{
     void insertar(NodoHumano* pHumano);
     void borrar(NodoHumano* borrado);
     bool existeId(int id);
-    NodoHumano* buscarIdFamilia(int id);
+    NodoHumano* buscar(int id);
+    NodoHumano* buscar(int id, node* raiz);
     QString imprimirListaMundo(QString* listaNombrePecados);
     void otorgarPecados();
-    NodoHumano* buscar(int id, node* raiz);
     QString paisesPecadores(QString* paises,bool top);
     void reemplazarHumano(int id, node* raiz);
-
     void generarArbol();
-
     int largoLista();
     int contarNacionales(QString pPais);
-
     std::vector<NodoHumano*> generarHeapCondenados(QString pPais);
-
     NodoHumano* mitadLista();
-
     QString listaCondenadosSalvadosOrdenada(bool cualLista);
-
     void asignarHijos(NodoHumano* candidato, int indiceApellido);
-
     void insertarNodoHumano(NodoHumano* humano);
 
 };

@@ -8,37 +8,32 @@ VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres
     ui(new Ui::VentanaMundo)
 {
     ui->setupUi(this);
-    apellidos=pApellidos;
-    nombres=pNombres;
-    paises=pPaises;
-    creencias=pCreencias;
-    profesiones=pProfesiones;
-    nombrePecado=pNombrePecado;
-    listaMundo=pListaMundo;
-    //arbolesApellidos = pArbolesApellidos;
-    infierno= new Infierno();
+    apellidos = pApellidos;
+    nombres = pNombres;
+    paises = pPaises;
+    creencias = pCreencias;
+    profesiones = pProfesiones;
+    nombrePecado = pNombrePecado;
+    listaMundo = pListaMundo;
+    infierno = new Infierno();
     paraiso = new Paraiso();
     arbolVida = new ArbolVida();
     hiloArbolVida = new HiloArbolVida(NULL,arbolVida,listaMundo,infierno,paraiso);
     hiloArbolVida->start();
 
-
-
     ventanaArbolVida = new VentanaArbolVida(NULL,hiloArbolVida,arbolVida);
-    ventanaSalvados= new VentanaSalvados(NULL, paraiso,nombrePecado);
-    ventanaNacimiento= new VentanaNacimiento(NULL,apellidos,nombres,paises,creencias,profesiones,
+    ventanaSalvados = new VentanaSalvados(NULL, paraiso,nombrePecado);
+    ventanaNacimiento = new VentanaNacimiento(NULL,apellidos,nombres,paises,creencias,profesiones,
                                              nombrePecado,listaMundo,arbolVida,paraiso);
-
-    ventanaConsultasFamilia= new VentanaConsultasFamilia(NULL,listaMundo);
+    ventanaConsultasFamilia = new VentanaConsultasFamilia(NULL,listaMundo);
     ventanaTop10 = new VentanaTop10Pecadores(NULL,listaMundo,paises);
-    ventanaTop5= new VentanaTop5Salvados(NULL,listaMundo,paises);
+    ventanaTop5 = new VentanaTop5Salvados(NULL,listaMundo,paises);
     ventanaContinentes = new VentanaContinentes();
     ventanaPecadores = new VentanaPecadores();
     ventanaConsultaApellido = new VentanaConsultaApellido();
     ventanaCondenarPais = new VentanaCondenarPais(NULL,infierno,listaMundo,paises);
-    ventanaCondenados= new VentanaCondenados(NULL,infierno,nombrePecado);
-
-
+    ventanaCondenados = new VentanaCondenados(NULL,infierno,nombrePecado);
+    ventanaNoNacidos = new VentanaNoNacidos(NULL, listaMundo, infierno, paraiso,arbolVida);
 }
 
 VentanaMundo::~VentanaMundo()
@@ -119,4 +114,9 @@ void VentanaMundo::on_botonCondenados_clicked()
 {
 
     ventanaCondenados->show();
+}
+
+void VentanaMundo::on_botonNoNacidos_clicked()
+{
+    ventanaNoNacidos->show();
 }

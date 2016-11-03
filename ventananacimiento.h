@@ -7,6 +7,7 @@
 #include "listamundo.h"
 #include "hilocrearhumanos.h"
 #include "paraiso.h"
+#include "creartreewidgetitem.h"
 //#include "arbolapellidos.h"
 
 namespace Ui {
@@ -44,6 +45,10 @@ public slots:
     void on_botonHumanos_clicked();
     void actualizarVentana();
 
+private slots:
+    void on_botonMundo_clicked();
+    void on_botonApellidos_clicked();
+    void on_cBoxApellidos_currentIndexChanged(int index);
 };
 
 #endif // VENTANANACIMIENTO_H

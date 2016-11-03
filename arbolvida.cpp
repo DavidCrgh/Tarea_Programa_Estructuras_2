@@ -22,6 +22,14 @@ bool ArbolVida::buscar(int pId, NodoVida* raiz){
     }
 }
 
+int ArbolVida::contarNodos(NodoVida* nodo){
+    if(nodo == NULL){
+        return 0;
+    } else{
+        return 1 + contarNodos(nodo->izquierda) + contarNodos(nodo->derecha);
+    }
+}
+
 void ArbolVida::limpiarArbol(){
     raiz = NULL;
 }

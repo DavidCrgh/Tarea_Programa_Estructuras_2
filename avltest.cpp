@@ -121,8 +121,6 @@ node* randomNode(node *p){
     return actual;
 }
 
-
-
 int countNodes(node *p){
     if(p == NULL){
         return 0;

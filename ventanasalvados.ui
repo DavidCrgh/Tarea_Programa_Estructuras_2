@@ -71,6 +71,16 @@ font: 14pt &quot;Californian FB&quot;;</string>
         </column>
         <column>
          <property name="text">
+          <string>Apellido</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
           <string>País</string>
          </property>
         </column>

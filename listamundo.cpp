@@ -315,19 +315,16 @@ NodoHumano* ListaMundo::buscar(int id, node *raiz){
 
 }
 
-NodoHumano* ListaMundo::buscarIdFamilia(int id){
+NodoHumano* ListaMundo::buscar(int id){
     NodoHumano* humanoTemporal= primerHumano;
     while(humanoTemporal!=NULL){
-
-        if(humanoTemporal->id == id)
+        if(humanoTemporal->id == id){
             return humanoTemporal;
-
+        }
         humanoTemporal= humanoTemporal->siguiente;
-
     }
         return NULL;
 }
-
 
 QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
     NodoHumano* humanoTemporal= primerHumano;

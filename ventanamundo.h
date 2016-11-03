@@ -15,6 +15,7 @@
 #include "ventanasalvados.h"
 #include "ventanatop10pecadores.h"
 #include "ventanatop5salvados.h"
+#include "ventananonacidos.h"
 //#include "arbolapellidos.h"
 #include "infierno.h"
 #include "paraiso.h"
@@ -61,6 +62,8 @@ private slots:
 
     void on_botonCondenados_clicked();
 
+    void on_botonNoNacidos_clicked();
+
 public:
     Ui::VentanaMundo *ui;
     QString*apellidos;
@@ -87,6 +90,7 @@ public:
     VentanaConsultaApellido* ventanaConsultaApellido;
     VentanaCondenarPais* ventanaCondenarPais;
     VentanaCondenados* ventanaCondenados;
+    VentanaNoNacidos* ventanaNoNacidos;
 };
 
 #endif // VENTANAMUNDO_H

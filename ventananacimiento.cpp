@@ -1,5 +1,9 @@
 #include "ventananacimiento.h"
 #include "ui_ventananacimiento.h"
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
 
 
 VentanaNacimiento::VentanaNacimiento(QWidget *parent,QString* pApellidos, QString* pNombres,
@@ -64,7 +68,30 @@ void VentanaNacimiento::actualizarVentana(){
 
 void VentanaNacimiento::on_botonHumanos_clicked()
 {
-
     ventanaHumanos->show();
     close();
+}
+
+void VentanaNacimiento::on_botonMundo_clicked()
+{
+    ui->cBoxApellidos->setEnabled(false);
+    if(listaMundo->arbolMundo != NULL){
+        ui->displayArbol->clear();
+        ui->displayArbol->addTopLevelItem(crearTreeWidgetItem(listaMundo->arbolMundo));
+    }
+}
+
+void VentanaNacimiento::on_botonApellidos_clicked()
+{
+    ui->cBoxApellidos->setEnabled(true);
+    if(listaMundo->arregloArbolesApellido[ui->cBoxApellidos->currentIndex()] != NULL){
+        ui->displayArbol->clear();
+        ui->displayArbol->addTopLevelItem(crearTreeWidgetItem(listaMundo->arregloArbolesApellido[ui->cBoxApellidos->currentIndex()]));
+}
+}
+
+void VentanaNacimiento::on_cBoxApellidos_currentIndexChanged(int index)
+{
+    cout << "Indice del cBox: " << index << endl;
+
 }

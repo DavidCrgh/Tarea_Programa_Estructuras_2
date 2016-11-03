@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "paraiso.h"
+#include "creartreewidgetitem.h"
 
 namespace Ui {
 class VentanaSalvados;
