@@ -20,6 +20,7 @@ struct ArbolMundo;
 struct ArbolApellidos;
 struct Continente;
 
+
 std::vector<Continente*> ordenarContinentes(std::vector<Continente*> arregloContinentes);
 QString determinarCorreoHumano(QString continente);
 QString imprimirNodo(NodoHumano* persona);
@@ -114,9 +115,11 @@ struct ListaMundo{
     void insertarNodoHumano(NodoHumano* humano);
     std::vector <Continente*> mapaCalor();
     QString filtrarApellidos(QString apellido);
-    QString filtrarApellidos(QString apellido);
-    QString filtrarApellidos(QString apellido);
-    QString filtrarApellidos(QString apellido);
-    QString filtrarApellidos(QString apellido);
+    QString filtrarContinentes(QString apellido);
+    QString filtrarPaises(QString apellido);
+    QString filtrarCreencias(QString apellido);
+    QString filtrarProfesiones(QString apellido);
+    QString filtroApellidoPais(QString apellido,QString pais);
+    void insertarAlInicio(NodoHumano* humano);
 };
 #endif // LISTAMUNDO_H

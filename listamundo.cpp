@@ -66,6 +66,8 @@ void ListaMundo::insertar(int id,QString nombre, QString apellido,QString pais,Q
     }
 }
 
+
+
 void ListaMundo::asignarHijos(NodoHumano *candidato, int indiceApellido){
     node* arbolApellido = arregloArbolesApellido[indiceApellido];
     int cantidadHijos = rand()%9;
@@ -121,6 +123,38 @@ void ListaMundo::borrar(NodoHumano *borrado){
         borrado->siguiente = NULL;
         borrado->anterior = NULL;
     }
+}
+
+void ListaMundo::insertarAlInicio(NodoHumano* humano){
+
+    if(primerHumano==NULL)
+        primerHumano=humano;
+    else{
+
+        humano->siguiente= primerHumano;
+        primerHumano=humano;
+
+    }
+}
+
+QString ListaMundo::filtroApellidoPais(QString apellido,QString pais){
+    ListaMundo* listaTemporal= new ListaMundo();
+    NodoHumano* humanoTemporal= primerHumano;
+
+    while(humanoTemporal!=NULL){
+
+        if(humanoTemporal->apellido==apellido && humanoTemporal->pais==pais){
+            NodoHumano*humanoAInsertar= humanoTemporal->clonarHumano(humanoTemporal);
+            listaTemporal->insertarAlInicio(humanoAInsertar);
+
+        }
+        humanoTemporal= humanoTemporal->siguiente;
+    }
+
+
+
+
+
 }
 
 void ListaMundo::reemplazarHumano(int id, node* raiz){
