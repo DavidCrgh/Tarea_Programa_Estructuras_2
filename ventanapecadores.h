@@ -22,6 +22,12 @@ public:
     QString* apellidos;
     QString* creencias;
     QString* profesiones;
+private slots:
+    void on_botonContinentes_clicked(bool checked);
+    void on_botonApellidos_clicked(bool checked);
+    void on_botonPaises_clicked(bool checked);
+    void on_botonCreencias_clicked(bool checked);
+    void on_botonProfesiones_clicked(bool checked);
 };
 
 #endif // VENTANAPECADORES_H

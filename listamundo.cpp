@@ -546,6 +546,8 @@ std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvado
             arregloSalvados[j] = arregloSalvados[j-1];
             arregloSalvados[j-1] = temporal;
             j--;
+            humanoJ= arregloSalvados[j];
+            humanoK= arregloSalvados[j-1];
         }
     }
     return arregloSalvados;
@@ -697,7 +699,7 @@ QString ListaMundo::listaCondenadosSalvadosOrdenada(bool cualLista){
    if(cualLista)
         arregloCondenadosSalvados= ordenarPecadores(arregloCondenadosSalvados,largo);
    else {
-        if(largo>3)
+        if(largo>2)
             arregloCondenadosSalvados=ordenarSalvados(arregloCondenadosSalvados,largo); //TODO todavia no ordena
    }
     int indice=0;

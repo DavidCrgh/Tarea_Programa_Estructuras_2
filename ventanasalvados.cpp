@@ -17,7 +17,7 @@ VentanaSalvados::~VentanaSalvados()
 
 void VentanaSalvados::on_actualizar_clicked()
 {
-   //ui->informacionSalvados->setText(paraiso->listaParaiso->listaCondenadosSalvadosOrdenada(false));
+   ui->informacionSalvados->setText(paraiso->listaParaiso->listaCondenadosSalvadosOrdenada(false));
    if(paraiso->arbolParaiso != NULL){
        ui->arbolAVL->clear();
        ui->arbolAVL->addTopLevelItem(crearTreeWidgetItem(paraiso->arbolParaiso));
