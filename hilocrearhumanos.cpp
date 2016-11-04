@@ -35,6 +35,8 @@ while(!stop){
     int maximo= 10000000;
 
     for(int i=0;i<cantidadHumanos;i++){
+        if(i > 9000)
+            qDebug("Prueba");
         int id= (1.0*rand()/RAND_MAX)*maximo;
         int indiceApellido = rand()%1000;
 

@@ -73,9 +73,9 @@ void ListaMundo::asignarHijos(NodoHumano *candidato, int indiceApellido){
 
     for(int i = 0; i < cantidadHijos; i++){
         hijo = NULL;
-        while(tieneCandidatos(arbolApellido,candidato)){
+        while(tieneCandidatos(arbolApellido,arbolApellido,candidato)){
             hijo = randomNode(arbolApellido)->humano;
-            if(hijo != candidato && !esFamiliar(candidato,hijo) && !esFamiliar(hijo, candidato)){
+            if(hijo != candidato && !esFamiliar(candidato,hijo) && !esFamiliar(hijo, candidato) && estaDisponible(hijo, arbolApellido)){
                 break;
             }
         }

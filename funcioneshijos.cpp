@@ -16,11 +16,29 @@ bool esFamiliar(NodoHumano* humano, NodoHumano* candidato){
     return false;
 }
 
-bool tieneCandidatos(node *arbol, NodoHumano *humano){
+bool estaDisponible(NodoHumano *humano, node *arbol){
     if(arbol == NULL){
+        return true;
+    } else{
+        for(int i = 0; i < 7; i++){
+            if(arbol->humano->listaHijos[i] == NULL){
+                break;
+            } else{
+                if(arbol->humano->listaHijos[i] == humano){
+                    return false;
+                }
+            }
+        }
+        return true && estaDisponible(humano, arbol->left) && estaDisponible(humano,arbol->right);
+    }
+}
+
+bool tieneCandidatos(node *nodo, node* arbol, NodoHumano *humano){
+    if(nodo == NULL){
         return false;
     } else{
-        return (!esFamiliar(humano, arbol->humano) && !esFamiliar(arbol->humano, humano) && arbol->humano != humano) ||
-                tieneCandidatos(arbol->left, humano) || tieneCandidatos(arbol->right, humano);
+        return (estaDisponible(nodo->humano,arbol) && !esFamiliar(humano, nodo->humano) && !esFamiliar(nodo->humano, humano)
+                && nodo->humano != humano) || tieneCandidatos(nodo->left,arbol, humano)
+                || tieneCandidatos(nodo->right,arbol,humano);
     }
 }
