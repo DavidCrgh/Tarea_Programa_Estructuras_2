@@ -113,6 +113,10 @@ struct ListaMundo{
     void asignarHijos(NodoHumano* candidato, int indiceApellido);
     void insertarNodoHumano(NodoHumano* humano);
     std::vector <Continente*> mapaCalor();
-
+    QString filtrarApellidos(QString apellido);
+    QString filtrarApellidos(QString apellido);
+    QString filtrarApellidos(QString apellido);
+    QString filtrarApellidos(QString apellido);
+    QString filtrarApellidos(QString apellido);
 };
 #endif // LISTAMUNDO_H

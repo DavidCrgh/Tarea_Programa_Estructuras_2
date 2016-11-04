@@ -43,5 +43,6 @@ struct NodoHumano{
         continente="Ninguno";
     }
     std::string obtenerNacimiento();
+    NodoHumano* clonarHumano(NodoHumano* humano);
 };
 #endif // NODOHUMANO_H
