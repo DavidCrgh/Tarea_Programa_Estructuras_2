@@ -41,7 +41,7 @@ VentanaNacimiento::VentanaNacimiento(QWidget *parent,QString* pApellidos, QStrin
     //arbolesApellidos = pArbolesApellidos;
     hiloCrearHumanos = new HiloCrearHumanos(NULL,listaMundo,apellidos,nombres,paises,creencias,
                                             profesiones,arbolVida,paraiso,continentes);
-    hiloCrearHumanos->pause=true;
+    //hiloCrearHumanos->pause=true;
     hiloCrearHumanos->start();
 }
 

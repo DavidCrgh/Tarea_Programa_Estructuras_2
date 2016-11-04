@@ -16,8 +16,8 @@ continentes=pContinentes;
 arbolIds= new ArbolVida();
 
 cantidadHumanos=0;
-bool stop= false;
-bool pause=false;
+stop= false;
+pause=true;
 
 }
 
