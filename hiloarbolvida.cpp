@@ -28,6 +28,7 @@ void HiloArbolVida::run(){
 
         NodoArbolSplay* buscadoInfierno = infierno->arbolInfierno->buscar(id);
         if(buscadoInfierno != NULL){
+            buscadoInfierno->humano->ubicacion="Paraiso";
             infierno->arbolInfierno->borrar(id);
             infierno->listaCondenados->borrar(buscadoInfierno->humano);
             paraiso->arbolParaiso=insert(paraiso->arbolParaiso,buscadoInfierno->humano);
@@ -39,6 +40,7 @@ void HiloArbolVida::run(){
         if(mundo->arbolMundo != NULL){
             NodoHumano* buscadoMundo = mundo->buscar(id,mundo->arbolMundo);
             if(buscadoMundo != NULL){
+                buscadoMundo->ubicacion="Paraiso";
                 mundo->reemplazarHumano(buscadoMundo->id, mundo->arbolMundo);
                 mundo->borrar(buscadoMundo);
                 paraiso->arbolParaiso = insert(paraiso->arbolParaiso, buscadoMundo);

@@ -58,11 +58,13 @@ while(!stop){
         NodoHumano* nuevoHumano = new NodoHumano(id,nombre,apellido,pais,creencia,profesion,correo);
         nuevoHumano->continente=continenteHumano;
         if(arbolVida->buscar(nuevoHumano->id,arbolVida->raiz)){
+            nuevoHumano->ubicacion="Paraiso";
             paraiso->arbolParaiso= insert(paraiso->arbolParaiso,nuevoHumano);
             paraiso->listaParaiso->insertarNodoHumano(nuevoHumano);
 
         }
         else{
+            nuevoHumano->ubicacion="Mundo";
             listaMundo->insertarNodoHumano(nuevoHumano);
             listaMundo->arregloArbolesApellido[indiceApellido] = insert(listaMundo->arregloArbolesApellido[indiceApellido],nuevoHumano);
             listaMundo->asignarHijos(nuevoHumano,indiceApellido);
