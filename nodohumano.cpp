@@ -26,6 +26,7 @@ NodoHumano* NodoHumano::clonarHumano(NodoHumano* humano){
                                        humano->pais,humano->creencia,humano->profesion,
                                        humano->correo);
     nuevo->continente = humano->continente;
+    nuevo->ubicacion= humano->ubicacion;
     for(int i = 0; i < 7; i++){
         nuevo->listaHijos[i] = humano->listaHijos[i];
         nuevo->listaPecados[i] = humano->listaPecados[i];

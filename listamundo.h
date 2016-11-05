@@ -24,6 +24,7 @@ struct Continente;
 std::vector<Continente*> ordenarContinentes(std::vector<Continente*> arregloContinentes);
 QString determinarCorreoHumano(QString continente);
 QString imprimirNodo(NodoHumano* persona);
+QString imprimirHumano(NodoHumano* persona);
 NodoHumano* buscarAuxiliar(NodoHumano *inicio,NodoHumano *fin,int id);
 void insertion_sort (Pais* arregloPaises[], int largo);
 std::vector<NodoHumano*> ordenarPecadores(std::vector<NodoHumano*> arregloPecadores, int pLargo);
@@ -119,7 +120,7 @@ struct ListaMundo{
     QString filtrarPaises(QString apellido);
     QString filtrarCreencias(QString apellido);
     QString filtrarProfesiones(QString apellido);
-    QString filtroApellidoPais(QString apellido,QString pais);
+    std::vector<NodoHumano*> filtroApellidoPais(QString apellido,QString pais);
     void insertarAlInicio(NodoHumano* humano);
 };
 #endif // LISTAMUNDO_H

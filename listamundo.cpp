@@ -86,6 +86,9 @@ void ListaMundo::asignarHijos(NodoHumano *candidato, int indiceApellido){
 }
 
 void ListaMundo::insertar(NodoHumano* pHumano){
+    for(int i=0;i<7;i++)
+        pHumano->listaPecados[i]=0;
+
     if(primerHumano==NULL){
         primerHumano = pHumano;
     }else if(primerHumano->id > pHumano->id){
@@ -137,7 +140,7 @@ void ListaMundo::insertarAlInicio(NodoHumano* humano){
     }
 }
 
-QString ListaMundo::filtroApellidoPais(QString apellido,QString pais){
+std::vector<NodoHumano*> ListaMundo::filtroApellidoPais(QString apellido,QString pais){
     ListaMundo* listaTemporal= new ListaMundo();
     NodoHumano* humanoTemporal= primerHumano;
 
@@ -151,8 +154,18 @@ QString ListaMundo::filtroApellidoPais(QString apellido,QString pais){
         humanoTemporal= humanoTemporal->siguiente;
     }
 
+    int largoListaTemporal= listaTemporal->largoLista();
 
+    std::vector<NodoHumano*> arregloFiltrados(largoListaTemporal);
+    NodoHumano* humanoListaTemporal= listaTemporal->primerHumano;
+        for(int i=0;i<arregloFiltrados.size();i++){
+            arregloFiltrados[i]=humanoListaTemporal;
+            humanoListaTemporal= humanoListaTemporal->siguiente;
+        }
 
+        arregloFiltrados=ordenarPecadores(arregloFiltrados,largoListaTemporal);
+
+        return arregloFiltrados;
 
 
 }
@@ -260,6 +273,9 @@ QString imprimirHumano(NodoHumano* humanoTemporal){
     informacion += "Id: " + QString::number(humanoTemporal->id)+"\n";
     informacion+= "Nombre: "+humanoTemporal->nombre+"\n";
     informacion+= "Apellido: "+humanoTemporal->apellido+"\n";
+    informacion+= "Ubicacion: "+humanoTemporal->ubicacion+"\n";
+    informacion+= "Pais: "+humanoTemporal->pais+"\n";
+    informacion+= "Suma de Pecados Total: "+ QString::number(sumaPecadosHumano(humanoTemporal))+"\n";
 
     for(int i=0; i<7;i++){
         informacion+= listaNombrePecado[i]+"\t";
@@ -269,6 +285,8 @@ QString imprimirHumano(NodoHumano* humanoTemporal){
     for(int i=0; i<7;i++){
         informacion+= QString::number(humanoTemporal->listaPecados[i])+"\t";
     }
+
+
 
     informacion+="\n";
     return informacion;
@@ -438,25 +456,26 @@ QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
     while(humanoTemporal!=NULL){
         informacion+= QString::number(humano)+") ";
         informacion+= "Nombre: "+humanoTemporal->nombre+"\n";
-     //   informacion+= "Apellido: "+ humanoTemporal->apellido+"\n";
+        informacion+= "Apellido: "+ humanoTemporal->apellido+"\n";
         informacion+= "ID: "+QString::number(humanoTemporal->id)+"\n";
-       // informacion+= QString ::fromStdString(humanoTemporal->momentoNacimiento)+"\n";
-       // informacion+= "Creencia: "+ humanoTemporal->creencia+"\n";
+        //informacion+= "Ubicacion: "+humanoTemporal->ubicacion+"\n";
+        informacion+= QString ::fromStdString(humanoTemporal->momentoNacimiento)+"\n";
+        informacion+= "Creencia: "+ humanoTemporal->creencia+"\n";
         informacion+= "País: "+ humanoTemporal->pais+"\n";
         informacion+= "Continente: "+humanoTemporal->continente+"\n";
 
-        //informacion+= "Profesión: "+ humanoTemporal->profesion+"\n";
+        informacion+= "Profesión: "+ humanoTemporal->profesion+"\n";
         informacion+= "Correo: "+ humanoTemporal->correo+"\n";
-        //informacion+= "Suma de Pecados en total: "+QString::number(sumaPecadosHumano(humanoTemporal)) +"\n";
-       // informacion+= "Cantidad de Pecados \n";
-        //for(int i=0; i<7;i++){
-         //   informacion+= listaNombrePecado[i]+"\t";
-       // }
-        //informacion+= "\n";
-        //for(int i=0; i<7;i++){
-         //   informacion+= QString::number(humanoTemporal->listaPecados[i])+"\t";
-        //}
-        //informacion+= "\n\n";
+        informacion+= "Suma de Pecados en total: "+QString::number(sumaPecadosHumano(humanoTemporal)) +"\n";
+        informacion+= "Cantidad de Pecados \n";
+        for(int i=0; i<7;i++){
+           informacion+= listaNombrePecado[i]+"\t";
+        }
+        informacion+= "\n";
+        for(int i=0; i<7;i++){
+            informacion+= QString::number(humanoTemporal->listaPecados[i])+"\t";
+        }
+        informacion+= "\n\n";
         informacion += "Hijos:\n[";
         for(int i = 0; i < 8; i++){
             if(humanoTemporal->listaHijos[i] != NULL){

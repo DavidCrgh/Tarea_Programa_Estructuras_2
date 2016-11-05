@@ -15,6 +15,7 @@ struct NodoHumano{
     QString profesion;
     QString correo;
     QString continente;
+    QString ubicacion;
     std::string momentoNacimiento;
     int listaPecados[7];
     NodoHumano* listaHijos[8];
@@ -41,6 +42,7 @@ struct NodoHumano{
         siguiente = NULL;
         anterior = NULL;
         continente="Ninguno";
+        ubicacion="Purgatorio";
     }
     std::string obtenerNacimiento();
     NodoHumano* clonarHumano(NodoHumano* humano);

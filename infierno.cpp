@@ -8,6 +8,7 @@ void Infierno::condenar(QString pPais, ListaMundo *listaMundo){
     if(cuartoPecadores > 0){
         for(int i = 0; i < cuartoPecadores; i++){
             NodoHumano* humanoActual = heapPecadores[i];
+            humanoActual->ubicacion="Infierno";
             arbolInfierno->insertar(humanoActual);
             listaMundo->borrar(humanoActual);
             listaCondenados->insertarNodoHumano(humanoActual);
