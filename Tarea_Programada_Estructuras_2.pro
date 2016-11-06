@@ -43,7 +43,8 @@ SOURCES += main.cpp\
     funcioneshijos.cpp \
     creartreewidgetitem.cpp \
     generarnonacidos.cpp \
-    ventananonacidos.cpp
+    ventananonacidos.cpp \
+    hiloenviarcorreo.cpp
 
 
 HEADERS  += ventanaprincipal.h \
@@ -78,7 +79,8 @@ HEADERS  += ventanaprincipal.h \
     funcioneshijos.h \
     creartreewidgetitem.h \
     generarnonacidos.h \
-    ventananonacidos.h
+    ventananonacidos.h \
+    hiloenviarcorreo.h
 
 FORMS    += ventanaprincipal.ui \
     ventanamundo.ui \

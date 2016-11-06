@@ -5,6 +5,7 @@
 #include "arbolvida.h"
 #include "paraiso.h"
 #include "infierno.h"
+#include "hiloenviarcorreo.h"
 
 class HiloArbolVida : public QThread
 {

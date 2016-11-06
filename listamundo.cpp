@@ -1,7 +1,16 @@
 #include "listamundo.h"
-
+#include "windows.h"
+#include <iostream>
+#include <cstdlib>
+#include "unistd.h"
 using namespace std;
 
+void enviarCorreo(const char* ejecucion){
+    chdir("C:\\Users\\Francisco Contreras\\workspace\\pruebaCorreo\\src\\pruebaCorreo\\");
+   // int a=  WinExec(ejecucion,SW_HIDE);
+    //  cout<<a;
+    system(ejecucion);
+}
 
 QString determinarCorreoHumano(QString continente){
 

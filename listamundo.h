@@ -20,7 +20,7 @@ struct ArbolMundo;
 struct ArbolApellidos;
 struct Continente;
 
-
+void enviarCorreo(const char* ejecucion);
 std::vector<Continente*> ordenarContinentes(std::vector<Continente*> arregloContinentes);
 QString determinarCorreoHumano(QString continente);
 QString imprimirNodo(NodoHumano* persona);

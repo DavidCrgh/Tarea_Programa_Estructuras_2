@@ -1,10 +1,12 @@
 #ifndef HILOCREARHUMANOS_H
 #define HILOCREARHUMANOS_H
 
+
 #include <QtCore>
 #include "listamundo.h"
 #include "arbolvida.h"
 #include "paraiso.h"
+#include "hiloenviarcorreo.h"
 
 //#include "arbolapellidos.h"
 

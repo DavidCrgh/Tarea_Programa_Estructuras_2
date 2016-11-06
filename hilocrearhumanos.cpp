@@ -1,4 +1,6 @@
 #include "hilocrearhumanos.h"
+#include "windows.h"
+
 
 HiloCrearHumanos::HiloCrearHumanos(QObject* parent,ListaMundo* pListaMundo,QString* pApellidos,QString* pNombres,QString* pPaises,
       QString* pCreencias,QString* pProfesiones,ArbolVida* pArbolVida,Paraiso* pParaiso,QString* pContinentes)
@@ -24,10 +26,10 @@ pause=true;
 
 
 void HiloCrearHumanos::run(){
+
 while(!stop){
 
     while(pause){
-
         msleep(10);
     }
 
@@ -58,9 +60,30 @@ while(!stop){
         NodoHumano* nuevoHumano = new NodoHumano(id,nombre,apellido,pais,creencia,profesion,correo);
         nuevoHumano->continente=continenteHumano;
         if(arbolVida->buscar(nuevoHumano->id,arbolVida->raiz)){
+            QString correo;
+            QString cuerpoCorreo;
+            QString ejecucion="cmd /c correoEnviar.exe ";
+
             nuevoHumano->ubicacion="Paraiso";
+            cuerpoCorreo+="El_humano_de_ID:_"+QString::number(nuevoHumano->id)+"_se_ha_ido_al_paraiso_y_sus_pecados_han_sido_limpiados,___";
+            correo= nuevoHumano->correo;
             paraiso->arbolParaiso= insert(paraiso->arbolParaiso,nuevoHumano);
             paraiso->listaParaiso->insertarNodoHumano(nuevoHumano);
+
+
+
+            correo+=" ";
+            correo+=cuerpoCorreo;
+            ejecucion+=correo;
+            const char* envioCorreo=ejecucion.toUtf8().constData();
+
+           // enviarCorreo(envioCorreo);
+
+            HiloEnviarCorreo* hiloCorreo= new HiloEnviarCorreo();
+            hiloCorreo->start();
+            hiloCorreo->ejecucion=envioCorreo;
+            hiloCorreo->pause=false;
+            //WinExec(enviarCorreo,SW_HIDE);
 
         }
         else{

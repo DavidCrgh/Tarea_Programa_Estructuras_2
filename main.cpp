@@ -5,6 +5,10 @@
 #include "hilointerfaz.h"
 #include <cstdlib>
 #include <iostream>
+#include "unistd.h"
+#include <windows.h>
+
+
 using namespace  std;
 
 /* Correos
@@ -18,7 +22,9 @@ using namespace  std;
 
 int main(int argc, char *argv[])
 {
+    chdir("C:\\Users\\Francisco Contreras\\workspace\\pruebaCorreo\\src\\pruebaCorreo\\");
 
+      // WinExec("cmd /c correoEnviar.exe mundooceania2016@gmail.com hola",SW_HIDE); //system();
 
  QString* apellidos=    cargarApellidos();
  QString* nombres=      cargarNombres();
