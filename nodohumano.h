@@ -46,5 +46,6 @@ struct NodoHumano{
     }
     std::string obtenerNacimiento();
     NodoHumano* clonarHumano(NodoHumano* humano);
+    bool cumpleFiltro(QString filtro);
 };
 #endif // NODOHUMANO_H

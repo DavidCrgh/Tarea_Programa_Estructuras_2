@@ -94,7 +94,7 @@ struct ListaMundo{
         }
     }
     int cantidadHumanos();
-    void sumarPecados();
+    //void sumarPecados();
     void insertar(int id,QString nombre,QString apellido,QString pais, QString creencia,
                           QString profesion,QString correo);
     void insertar(NodoHumano* pHumano);
@@ -115,11 +115,10 @@ struct ListaMundo{
     void asignarHijos(NodoHumano* candidato, int indiceApellido);
     void insertarNodoHumano(NodoHumano* humano);
     std::vector <Continente*> mapaCalor();
-    QString filtrarApellidos(QString apellido);
-    QString filtrarContinentes(QString apellido);
-    QString filtrarPaises(QString apellido);
-    QString filtrarCreencias(QString apellido);
-    QString filtrarProfesiones(QString apellido);
+    QString imprimirOrdenPecados(long long pecadosHumanidad);
+    long long sumarPecadosHumanidad();
+    ListaMundo* filtrarApellidos(node* arbolApellido, ListaMundo* lista);
+    ListaMundo* filtrarLista(QString filtro);
     std::vector<NodoHumano*> filtroApellidoPais(QString apellido,QString pais);
     void insertarAlInicio(NodoHumano* humano);
 };

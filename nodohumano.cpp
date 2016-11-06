@@ -35,3 +35,8 @@ NodoHumano* NodoHumano::clonarHumano(NodoHumano* humano){
 
     return nuevo;
 }
+
+bool NodoHumano::cumpleFiltro(QString filtro){
+    return continente == filtro || pais == filtro ||
+            creencia == filtro || profesion == filtro;
+}

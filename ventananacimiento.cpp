@@ -69,10 +69,9 @@ void VentanaNacimiento::on_aceptar_clicked()
 }
 
 void VentanaNacimiento::actualizarVentana(){
-
     ui->cantidadHumanos->setText(QString::number(listaMundo->cantidadHumanos()));
     ui->casillaHumanos->setRange(0,9999999-(listaMundo->cantidadHumanos()));
-    }
+}
 
 void VentanaNacimiento::on_botonHumanos_clicked()
 {

@@ -1,7 +1,8 @@
 #include "ventanapecadores.h"
 #include "ui_ventanapecadores.h"
 
-VentanaPecadores::VentanaPecadores(QWidget *parent,QString* pPaises,QString* pApellidos,QString* pCreencias,QString* pProfesiones) :
+VentanaPecadores::VentanaPecadores(QWidget *parent,QString* pPaises,QString* pApellidos,QString* pCreencias,QString* pProfesiones,
+                                   ListaMundo* pMundo) :
     QMainWindow(parent),
     ui(new Ui::VentanaPecadores)
 {
@@ -49,12 +50,16 @@ VentanaPecadores::VentanaPecadores(QWidget *parent,QString* pPaises,QString* pAp
     ui->listaProfesiones->setDisabled(true);
     ui->listaPaises->setDisabled(true);
 
-
+    mundo = pMundo;
 }
 
 VentanaPecadores::~VentanaPecadores()
 {
     delete ui;
+}
+
+void VentanaPecadores::actualizarVentana(){
+    ui->sumaPecados->setText(QString::number(mundo->sumarPecadosHumanidad()));
 }
 
 void VentanaPecadores::on_botonContinentes_clicked(bool checked)
@@ -64,7 +69,8 @@ void VentanaPecadores::on_botonContinentes_clicked(bool checked)
     ui->listaCreencias->setDisabled(true);
     ui->listaProfesiones->setDisabled(true);
     ui->listaPaises->setDisabled(true);
-
+    ListaMundo* filtro = mundo->filtrarLista(ui->listaContinentes->currentText());
+    ui->textBrowser->setText(filtro->imprimirOrdenPecados(mundo->sumarPecadosHumanidad()));
 }
 
 void VentanaPecadores::on_botonApellidos_clicked(bool checked)
@@ -74,7 +80,8 @@ void VentanaPecadores::on_botonApellidos_clicked(bool checked)
     ui->listaCreencias->setDisabled(true);
     ui->listaProfesiones->setDisabled(true);
     ui->listaPaises->setDisabled(true);
-
+    ListaMundo* filtro = mundo->filtrarApellidos(mundo->arregloArbolesApellido[ui->listaApellidos->currentIndex()],NULL);
+    ui->textBrowser->setText(filtro->imprimirOrdenPecados(mundo->sumarPecadosHumanidad()));
 }
 
 void VentanaPecadores::on_botonPaises_clicked(bool checked)
@@ -84,7 +91,8 @@ void VentanaPecadores::on_botonPaises_clicked(bool checked)
     ui->listaCreencias->setDisabled(true);
     ui->listaProfesiones->setDisabled(true);
     ui->listaPaises->setDisabled(false);
-
+    ListaMundo* filtro = mundo->filtrarLista(ui->listaPaises->currentText());
+    ui->textBrowser->setText(filtro->imprimirOrdenPecados(mundo->sumarPecadosHumanidad()));
 }
 
 void VentanaPecadores::on_botonCreencias_clicked(bool checked)
@@ -94,7 +102,8 @@ void VentanaPecadores::on_botonCreencias_clicked(bool checked)
     ui->listaCreencias->setDisabled(false);
     ui->listaProfesiones->setDisabled(true);
     ui->listaPaises->setDisabled(true);
-
+    ListaMundo* filtro = mundo->filtrarLista(ui->listaCreencias->currentText());
+    ui->textBrowser->setText(filtro->imprimirOrdenPecados(mundo->sumarPecadosHumanidad()));
 }
 
 void VentanaPecadores::on_botonProfesiones_clicked(bool checked)
@@ -104,5 +113,6 @@ void VentanaPecadores::on_botonProfesiones_clicked(bool checked)
     ui->listaCreencias->setDisabled(true);
     ui->listaProfesiones->setDisabled(false);
     ui->listaPaises->setDisabled(true);
-
+    ListaMundo* filtro = mundo->filtrarLista(ui->listaProfesiones->currentText());
+    ui->textBrowser->setText(filtro->imprimirOrdenPecados(mundo->sumarPecadosHumanidad()));
 }

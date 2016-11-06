@@ -20,5 +20,7 @@ VentanaNoNacidos::~VentanaNoNacidos()
 
 void VentanaNoNacidos::on_botonActualizar_clicked()
 {
-    ui->cuadroIds->setText(generarNoNacidos(mundo,infierno,paraiso,arbolVida));
+    if(mundo->arbolMundo != NULL){
+        ui->cuadroIds->setText(generarNoNacidos(mundo,infierno,paraiso,arbolVida));
+    }
 }

@@ -17,6 +17,7 @@ public:
 signals:
     void actualizarVentanaNacimiento();
     void actualizarVentanaHumanos();
+    void actualizarVentanaPecadores();
 };
 
 #endif // HILOINTERFAZ_H
