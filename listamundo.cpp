@@ -5,10 +5,26 @@
 #include "unistd.h"
 using namespace std;
 
+/*
+ *
+ * Entradas: El comando con el cual se ejecutará el correo.
+ * Salidas: Ninguna.
+ * Envia un correo, dados como parametros el correo a enviar y el mensaje.
+ *
+ * */
+
 void enviarCorreo(const char* ejecucion){
     chdir("C:\\Users\\Francisco Contreras\\workspace\\pruebaCorreo\\src\\pruebaCorreo\\");
     system(ejecucion);
 }
+
+/*
+ *
+ *Entradas: El continente.
+ *Salidas: El correo correspondiente al continente.
+ *La funcion determina dado un continente, al cual correo pertenece.
+ *
+ * */
 
 QString determinarCorreoHumano(QString continente){
 
@@ -39,6 +55,13 @@ QString oceania="mundooceania2016@gmail.com";
 
 }
 
+/*
+ *
+ * Entradas: Ninguna.
+ * Salidas: La cantidad de humanos en la lista del mundo.
+ * La funcion determina cuantos humanos existen en la lista del mundo.
+ *
+ * */
 
 int ListaMundo::cantidadHumanos(){
     NodoHumano* nodoPersonaTemporal=primerHumano;
@@ -51,6 +74,15 @@ int ListaMundo::cantidadHumanos(){
     }
         return sumatoria;
 }
+
+/*
+ *
+ *Entradas: id, nombre, apellido, pais y creencia.
+ *Salidas: Ninguna.
+ *Inserta un nodo en la lista del mundo de manera ordenada.
+ *
+ * */
+
 
 void ListaMundo::insertar(int id,QString nombre, QString apellido,QString pais,QString creencia,
          QString profesion, QString correo){
@@ -79,7 +111,13 @@ void ListaMundo::insertar(int id,QString nombre, QString apellido,QString pais,Q
     }
 }
 
-
+/*
+ *
+ * Entradas: La persona a la que se le asignará hijos y el indice de apellido.
+ * Salidas: Ninguna.
+ * Le asigna a la persona ingresada los hijos que le correspondan.
+ *
+ * */
 
 void ListaMundo::asignarHijos(NodoHumano *candidato, int indiceApellido){
     node* arbolApellido = arregloArbolesApellido[indiceApellido];
@@ -97,6 +135,14 @@ void ListaMundo::asignarHijos(NodoHumano *candidato, int indiceApellido){
         candidato->listaHijos[i] = hijo;
     }
 }
+
+/*
+ *
+ * Entradas: El nodoHumano a insertar.
+ * Salidas: Ninguna.
+ * Se inserta en la lista, un nodo y se inserta de manera ordenada.
+ *
+ * */
 
 void ListaMundo::insertar(NodoHumano* pHumano){
     for(int i=0;i<7;i++){
@@ -125,6 +171,14 @@ void ListaMundo::insertar(NodoHumano* pHumano){
     }
 }
 
+/*
+ *
+ * Entradas: El humano por borrarse.
+ * Salidas: Ninguna.
+ * La funcion borra de la lista el humano indicado
+ *
+ * */
+
 void ListaMundo::borrar(NodoHumano *borrado){
     if(borrado->anterior == NULL){
         primerHumano = primerHumano->siguiente;
@@ -141,6 +195,14 @@ void ListaMundo::borrar(NodoHumano *borrado){
     }
 }
 
+/*
+ *
+ * Entradas: El humano a insertar.
+ * Salidas: Ninguna.
+ * La funcion inserta al inicio de la lista el nodoHumano indicado.
+ *
+ * */
+
 void ListaMundo::insertarAlInicio(NodoHumano* humano){
     if(primerHumano==NULL){
         primerHumano=humano;
@@ -150,6 +212,14 @@ void ListaMundo::insertarAlInicio(NodoHumano* humano){
         primerHumano=humano;
     }
 }
+
+/*
+ * Entradas: Apellido y país.
+ * Salidas: Un vector con las personas que cumplen con el filtro de apellido y país.
+ * La funcion crea un arreglo con las personas en la lista del mundo que cumplan con el filtro seleccionado y lo devuelve.
+ *
+ * */
+
 
 std::vector<NodoHumano*> ListaMundo::filtroApellidoPais(QString apellido,QString pais){
     ListaMundo* listaTemporal= new ListaMundo();
@@ -175,6 +245,16 @@ std::vector<NodoHumano*> ListaMundo::filtroApellidoPais(QString apellido,QString
         return arregloFiltrados;
 }
 
+
+/*
+ *
+ * Entradas:  Id y la raiz del arbol.
+ * Salidas: Ninguna.
+ * Reemplaza al humano del arbol del mundo que se vaya a eliminar con uno cercano en la lista para mantener completo y balanceado el arbol.
+ *
+ *
+ * */
+
 void ListaMundo::reemplazarHumano(int id, node* raiz){
     if(raiz == NULL){
         return;
@@ -191,6 +271,14 @@ void ListaMundo::reemplazarHumano(int id, node* raiz){
     }
 }
 
+/*
+ *
+ * Entradas: Id.
+ * Salidas: Retorna un booleano en caso de que exista el id.
+ * Se busca en la lista del mundo, si el id existe retorna true, en caso contrario false;
+ *
+ * */
+
 bool ListaMundo:: existeId(int id){
     NodoHumano* humanoActual=primerHumano;
 
@@ -202,6 +290,14 @@ bool ListaMundo:: existeId(int id){
     return false;
 }
 
+/*
+ *
+ * Entradas: Ninguna
+ * Salidas: Largo de la lista.
+ * Determina la cantidad de nodos Humanos existentes en la lista y lo retorna
+ *
+ * */
+
 int ListaMundo::largoLista(){
     int largo=0;
     NodoHumano* humanoTemporal= primerHumano;
@@ -212,6 +308,16 @@ int ListaMundo::largoLista(){
     }
     return largo;
 }
+
+/*
+ *
+ * Entradas: Inicio del rango del id por buscar, Fin del rango del id por buscar, id por buscar.
+ * Salidas: Si se encuentra el humano se retorna, en otro caso NULL.
+ * La funcion determina un rango en el cual se puede encontrar el id del humano por buscar y lo recorre.
+ *
+ * */
+
+
 
 NodoHumano* buscarAuxiliar(NodoHumano *inicio, NodoHumano *fin,int id){
     if(inicio==fin){
@@ -245,6 +351,15 @@ NodoHumano* buscarAuxiliar(NodoHumano *inicio, NodoHumano *fin,int id){
     return NULL;
 }
 
+/*
+ *
+ * Entradas: El humano a imprimir la información.
+ * Salidas: Un QString con la informacion del humano.
+ * La funcion almacena en una variable la información de la persona y la retorna.
+ *
+ * */
+
+
 QString imprimirHumano(NodoHumano* humanoTemporal){
     QString listaNombrePecado[]={"Lujuria","Gula","Avaricia","Pereza","Ira","Envidia","Soberbia"};
     QString informacion;
@@ -265,6 +380,15 @@ QString imprimirHumano(NodoHumano* humanoTemporal){
     informacion+="\n";
     return informacion;
 }
+
+/*
+ *
+ * Entradas: El humano el cual se desea extraer la informacion.
+ * Salidas: Un QString con la informacion de hijos y nietos del humano ingresado.
+ * La funcion almacena en una variable la informacion de hijos y nietos de la persona y la retorna.
+ *
+ * */
+
 
 QString imprimirNodo(NodoHumano* humanoTemporal){
     QString informacion;
@@ -291,6 +415,15 @@ QString imprimirNodo(NodoHumano* humanoTemporal){
     }
     return informacion;
 }
+
+/*
+ *
+ * Entradas: Id del humano a buscar, raiz del arbol.
+ * Salidas: El humano en caso de ser encontrado, NULL en cualquier otro caso.
+ * La funcion busca mediante el arbol, en que posibles rangos podría estar el id, y lo busca en ese rango.
+ *
+ * */
+
 
 NodoHumano* ListaMundo::buscar(int id, node *raiz){
 
@@ -320,6 +453,15 @@ NodoHumano* ListaMundo::buscar(int id, node *raiz){
 
 }
 
+/*
+ *
+ * Entradas: El id.
+ * Salidas: El humano si fue encontrado, NULL en otro caso.
+ * La funcion busca en la lista del mundo si existe alguna coincidencia de id y retorna el nodo correspondiente.
+ *
+ * */
+
+
 NodoHumano* ListaMundo::buscar(int id){
     NodoHumano* humanoTemporal= primerHumano;
     while(humanoTemporal!=NULL){
@@ -330,6 +472,16 @@ NodoHumano* ListaMundo::buscar(int id){
     }
         return NULL;
 }
+
+/*
+ *
+ * Entradas: Lista con los nombres de pecados.
+ * Salidas: Un QString con la informacion de todos los humanos del mundo.
+ * La funcion almacena en una variable QString toda la informacion de los humanos del mundo.
+ *
+ * */
+
+
 
 QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
     NodoHumano* humanoTemporal= primerHumano;
@@ -342,7 +494,7 @@ QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
         informacion+= "Nombre: "+humanoTemporal->nombre+"\n";
         informacion+= "Apellido: "+ humanoTemporal->apellido+"\n";
         informacion+= "ID: "+QString::number(humanoTemporal->id)+"\n";
-        //informacion+= "Ubicacion: "+humanoTemporal->ubicacion+"\n";
+        informacion+= "Ubicacion: "+humanoTemporal->ubicacion+"\n";
         informacion+= QString ::fromStdString(humanoTemporal->momentoNacimiento)+"\n";
         informacion+= "Creencia: "+ humanoTemporal->creencia+"\n";
         informacion+= "País: "+ humanoTemporal->pais+"\n";
@@ -374,6 +526,15 @@ QString ListaMundo::imprimirListaMundo(QString* listaNombrePecado){
     }
     return informacion;
 }
+
+
+/*
+ *
+ * Entradas: Ninguna
+ * Salidas: Ninguna
+ * La funcion otorga pecados a los humanos del mundo y otorga la herencia a hijos y nietos.
+ *
+ * */
 
 void ListaMundo::otorgarPecados(){
     srand(time(NULL));
@@ -418,6 +579,14 @@ void ListaMundo::otorgarPecados(){
 
 }
 
+/*
+ *
+ * Entradas: Un nodo Humano.
+ * Salidas: La cantidad total de pecados de ese humano.
+ * La funcion retorna la sumatoria total de pecados de la persona ingresada.
+ *
+ * */
+
 int sumaPecadosHumano(NodoHumano* persona){
 
     int sumatoria=0;
@@ -427,6 +596,14 @@ int sumaPecadosHumano(NodoHumano* persona){
 
 
 }
+
+/*
+ *
+ * Entradas: Arreglo de estructura de tipo Pais, longitud del arreglo.
+ * Salidas: Ninguna.
+ * La funcion ordena de menor a mayor la cantidad de pecados que posea cada pais.
+ *
+ * */
 
 void insertion_sort(Pais* arr[], int length){
         int j;
@@ -444,6 +621,15 @@ void insertion_sort(Pais* arr[], int length){
         }
 }
 
+
+/*
+ *
+ * Entradas: Un vector de humanos, largo del vector.
+ * Salidas: El vector de humano ordena de mas a menos pecador.
+ * La funcion ordena de mayor a menor la cantidad de pecados de los humanos.
+ *
+ * */
+
 std::vector<NodoHumano*> ordenarPecadores(std::vector<NodoHumano*>arregloPecadores, int largo){
     int j;
     NodoHumano* temporal;
@@ -460,6 +646,14 @@ std::vector<NodoHumano*> ordenarPecadores(std::vector<NodoHumano*>arregloPecador
     }
     return arregloPecadores;
 }
+
+/*
+ *
+ * Entradas: Un arreglo con las personas que estan en el paraiso.
+ * Salidas: El arreglo de las persoans del paraiso ordenadas en orden alfabetico.
+ * La funcion ordena en forma alfabetica por apellido, las personas del paraiso.
+ *
+ * */
 
 
 std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvados, int largo){
@@ -486,6 +680,14 @@ std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvado
     return arregloSalvados;
 }
 
+/*
+ *
+ * Entradas: Un arreglo con los continentes del mundo.
+ * Salidas: El arreglo de continentes ordenado del mayor al menos pecador.
+ * La funcion ordena de mayor a menor los pecados totales de los continentes.
+ *
+ * */
+
 std::vector<Continente*> ordenarContinentes(std::vector<Continente*> arregloContinentes){
 
     int j;
@@ -510,6 +712,14 @@ std::vector<Continente*> ordenarContinentes(std::vector<Continente*> arregloCont
 
 
 }
+
+/*
+ *
+ * Entradas: Ninguna.
+ * Salidas: El arreglo de continentes ordenados de mas a menos pecador.
+ * La funcion verifica cada continente contra todos los humanos y extrae la cantidad total de pecados con el fin de ordenarlos de mayor a menor.
+ *
+ * */
 
 std::vector<Continente*> ListaMundo::mapaCalor(){
     std::vector <Continente*> continentes(5);
@@ -539,6 +749,15 @@ std::vector<Continente*> ListaMundo::mapaCalor(){
     return continentes;
 
 }
+
+
+/*
+ *
+ * Entradas: Arreglo de los paises, cual top, si 10 ó 5.
+ * Salidas: Un QString indicando los paises en el top 10 o top 5
+ * La funcion determina la cantidad de pecados de los paises, los ordena de mayor a menor, y determine los tops de acuerdo al arreglo.
+ *
+ * */
 
 QString ListaMundo::paisesPecadores(QString* paises,bool cualTop){
     Pais* arregloPaises[242];
@@ -573,6 +792,15 @@ QString ListaMundo::paisesPecadores(QString* paises,bool cualTop){
 
 }
 
+/*
+ *
+ * Entradas: Ninguna
+ * Salidas: La mitad de la lista
+ * La funcion recorre la funcion y devuelve el humano que esté en la mitad de la lista.
+ *
+ * */
+
+
 NodoHumano* ListaMundo::mitadLista(){
 
     int largo= largoLista();
@@ -605,7 +833,13 @@ int ListaMundo::contarNacionales(QString pPais){
     return sumatoria;
 }
 
-
+/*
+ *
+ * Entradas: Cual lista se ordenará.
+ * Salidas: un QString con la información de la lista ordenada seleccionada.
+ * La función determina si se ordenará la lista del paraiso o la del infierno y se llama para cada una un método especial de ordenamiento, al final se devuelve la información de los humanos de la lista ordenada.
+ *
+ * */
 
 QString ListaMundo::listaCondenadosSalvadosOrdenada(bool cualLista){
     QString listaNombrePecado[]={"Lujuria","Gula","Avaricia","Pereza","Ira","Envidia","Soberbia"};
@@ -688,6 +922,14 @@ std::vector<NodoHumano*> ListaMundo::generarHeapCondenados(QString pPais){
     return arregloPecadores;
 }
 
+/*
+ * Entradas: numero.
+ * Salidas: La potencia más cercana, mayor, del número ingresado.
+ * La funcion determina la potencia más cercana, mayor, del número ingresado.
+ *
+ * */
+
+
 int determinarPotenciaCercana(int numero)
 {
     return (pow(2, ceil(log(numero)/log(2)))) - 1;
@@ -720,6 +962,14 @@ void ListaMundo::generarArbol(){
 
 }
 
+/*
+ *
+ * Entradas: El nodo de la persona, la cantidad de desplazamiento, la dirección en la que se desplazará.
+ * Salidas: Devuelve el nodo humano en donde quedó el puntero.
+ * La función desplaza el puntero dada una dirección de memoria, y retorna el nodo en donde el puntero quedó apuntando.
+ *
+ * */
+
 NodoHumano* desplazarPuntero(NodoHumano *persona, int cantidad, bool direccion){
     int indice=0;
 
@@ -750,7 +1000,13 @@ int ArbolMundo::cantidadNodos(NodoArbolMundo* raiz){
 
 }
 
-
+/*
+ *
+ * Entradas: El humano a insertar y la raiz del arbol
+ * Salidas: Retorna la raiz para poder reconstruir el árbol.
+ * La funcion inserta en el arbol del mundo, preguntando por el id para ver en que posicion debe insertarlo.
+ *
+ * */
 NodoArbolMundo* ArbolMundo::insertarArbolMundo(NodoHumano *humano, NodoArbolMundo* raiz){
     if(raiz == NULL){
         return new NodoArbolMundo(humano->id, humano);
@@ -799,6 +1055,14 @@ void ListaMundo::insertarNodoHumano(NodoHumano* humanoNuevo){
 
     }
 }
+
+/*
+ *
+ * Entradas: Ninguna.
+ * Salidas: Total de pecados.
+ * La funcion determina la cantidad total de pecados de toda la humanidad.
+ *
+ * */
 
 long long ListaMundo::sumarPecadosHumanidad(){
     long long sumador = 0;
@@ -870,7 +1134,13 @@ QString ListaMundo::imprimirOrdenPecados(long long pecadosHumanidad){
         return "Sin humanos.";
     }
 }
-
+/*
+ *
+ * Entradas: El arbol del apellido por buscar, la lista del mundo.
+ * Salidas: Una lista con todos los nodos correspondientes a ese apellido.
+ * La funcion recorre recursivamente el arbol y va insertando nodos en la lista.
+ *
+ * */
 ListaMundo* ListaMundo::filtrarApellidos(node *arbolApellido, ListaMundo *lista){
     if(lista == NULL){
         lista = new ListaMundo();
