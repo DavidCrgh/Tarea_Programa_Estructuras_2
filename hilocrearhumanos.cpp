@@ -77,13 +77,13 @@ while(!stop){
             ejecucion+=correo;
             const char* envioCorreo=ejecucion.toUtf8().constData();
 
-           // enviarCorreo(envioCorreo);
+
 
             HiloEnviarCorreo* hiloCorreo= new HiloEnviarCorreo();
             hiloCorreo->start();
             hiloCorreo->ejecucion=envioCorreo;
             hiloCorreo->pause=false;
-            //WinExec(enviarCorreo,SW_HIDE);
+
 
         }
         else{

@@ -46,14 +46,9 @@ void VentanaConsultaApellido::on_aceptar_clicked()
     std::vector<NodoHumano*> filtroInfierno= infierno->listaCondenados->filtroApellidoPais(apellido,pais);
     std::vector<NodoHumano*> filtroParaiso= paraiso->listaParaiso->filtroApellidoPais(apellido,pais);
 
-    cout<<"Filtro Mundo:"<<" "<<filtroMundo.size()<<endl;
-    cout<<"Filtro Infierno:"<<" "<<filtroInfierno.size()<<endl;
-    cout<<"Filtro Paraiso:"<<" "<<filtroParaiso.size()<<endl;
-
     filtroMundo.insert(filtroMundo.end(),filtroInfierno.begin(),filtroInfierno.end());
     filtroMundo.insert(filtroMundo.end(),filtroParaiso.begin(),filtroParaiso.end());
 
-    cout<<"Filtro Mundo Total:"<<" "<<filtroMundo.size()<<endl;
     filtroMundo=ordenarPecadores(filtroMundo,filtroMundo.size());
     if(filtroMundo.size()!=0){
         for(int i=0;i<filtroMundo.size();i++)

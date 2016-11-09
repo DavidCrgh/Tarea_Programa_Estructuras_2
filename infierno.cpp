@@ -30,8 +30,7 @@ void Infierno::condenar(QString pPais, ListaMundo *listaMundo){
         const char* enviarCorreo=ejecucion.toUtf8().constData();
 
         system(enviarCorreo);
-       //int a= WinExec(enviarCorreo,SW_HIDE);
-       //cout<<a;
+
     }
 
 }

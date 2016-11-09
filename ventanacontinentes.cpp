@@ -42,10 +42,10 @@ void VentanaContinentes::on_pushButton_clicked()
 
     std::vector<Continente*>arregloContinentes= listaMundo->mapaCalor();
 
-    Continente* caca;
+    Continente* conti;
     for(int i=0;i<5;i++){
-        caca=arregloContinentes[i];
-        qDebug()<<caca->nombreContinente<<""<<caca->pecadosTotales;
+        conti=arregloContinentes[i];
+        qDebug()<<conti->nombreContinente<<""<<conti->pecadosTotales;
     }
 
     for(int i=0;i<arregloContinentes.size();i++){
@@ -65,5 +65,5 @@ void VentanaContinentes::on_pushButton_clicked()
     }
 
 
-   // ui->america->setPixmap(QPixmap(colores[0][3]));
+
 }

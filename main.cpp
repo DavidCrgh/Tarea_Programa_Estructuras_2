@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 {
     chdir("C:\\Users\\Francisco Contreras\\workspace\\pruebaCorreo\\src\\pruebaCorreo\\");
 
-      // WinExec("cmd /c correoEnviar.exe mundooceania2016@gmail.com hola",SW_HIDE); //system();
+
 
  QString* apellidos=    cargarApellidos();
  QString* nombres=      cargarNombres();
@@ -34,17 +34,13 @@ int main(int argc, char *argv[])
  QString* nombrePecados= cargarPecados();
  QString* continentes = cargarContinentes();
 
- for(int i=0;i<242;i++)
-     qDebug()<<continentes[i];
-
- //ArbolApellidos** arbolesApellidos= popularArbolesApellido();
 
  ListaMundo* listaMundo= new ListaMundo();
  HiloInterfaz* hiloInterfazPrincipal;
 
     QApplication a(argc, argv);
     VentanaPrincipal* w = new VentanaPrincipal(NULL,apellidos,nombres,paises,creencias,profesiones,
-                                               nombrePecados,listaMundo,continentes/*,arbolesApellidos*/);
+                                               nombrePecados,listaMundo,continentes);
     w->show();
 
     hiloInterfazPrincipal= new HiloInterfaz(NULL,w);

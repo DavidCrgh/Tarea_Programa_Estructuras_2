@@ -3,7 +3,7 @@
 
 VentanaPrincipal::VentanaPrincipal(QWidget *parent,QString* pApellidos,QString* pNombres,QString* pPaises,
                                    QString* pCreencias, QString* pProfesiones,QString* pNombrePecados,
-                                    ListaMundo*pListaMundo, QString*pContinentes):/*,ArbolApellidos** pArbolesApellidos*/
+                                    ListaMundo*pListaMundo, QString*pContinentes):
     QMainWindow(parent),
     ui(new Ui::VentanaPrincipal)
 {
@@ -16,7 +16,6 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent,QString* pApellidos,QString* 
     nombrePecado= pNombrePecados;
     listaMundo=pListaMundo;
     continentes=pContinentes;
-    //arbolesApellidos = pArbolesApellidos;
     ventanaMundo = new VentanaMundo(NULL,apellidos,nombres,paises,creencias,profesiones,nombrePecado,listaMundo,continentes/*,arbolesApellidos*/);
 
 }

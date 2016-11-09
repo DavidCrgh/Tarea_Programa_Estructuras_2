@@ -37,7 +37,7 @@ node* rotateleft(node* q)
     return p;
 }
 
-node* balance(node* p) // balancing the p node
+node* balance(node* p)
 {
     fixheight(p);
     if( bfactor(p)==2 )
@@ -52,10 +52,10 @@ node* balance(node* p) // balancing the p node
             p->left = rotateleft(p->left);
         return rotateright(p);
     }
-    return p; // balancing is not required
+    return p;
 }
 
-node* insert(node* p, NodoHumano* pHumano) // insert k key in a tree with p root
+node* insert(node* p, NodoHumano* pHumano)
 {
     if( !p ) return new node(pHumano);
     if( pHumano->id<p->humano->id)
@@ -65,12 +65,12 @@ node* insert(node* p, NodoHumano* pHumano) // insert k key in a tree with p root
     return balance(p);
 }
 
-node* findmin(node* p) // find a node with minimal key in a p tree
+node* findmin(node* p)
 {
     return p->left?findmin(p->left):p;
 }
 
-node* removemin(node* p) // deleting a node with minimal key from a p tree
+node* removemin(node* p)
 {
     if( p->left==0 )
         return p->right;
@@ -78,7 +78,7 @@ node* removemin(node* p) // deleting a node with minimal key from a p tree
     return balance(p);
 }
 
-node* remove(node* p, int k) // deleting k key from p tree
+node* remove(node* p, int k)
 {
     if( !p ) return 0;
     if(k < p->humano->id)

@@ -19,14 +19,12 @@ void HiloEnviarCorreo::run(){
         while(pause){
          msleep(10);
         }
-/*
-      int a=  WinExec(ejecucion,SW_HIDE);
-        cout<<a;*/
 
         mute.lock();
         system(ejecucion);
         mute.unlock();
         pause=true;
+
     }
 
 }

@@ -3,7 +3,7 @@
 
 VentanaMundo::VentanaMundo(QWidget *parent,QString* pApellidos,QString* pNombres,QString* pPaises,
                            QString* pCreencias, QString* pProfesiones,QString* pNombrePecado,
-                           ListaMundo* pListaMundo,QString* pContinentes/*,ArbolApellidos ** pArbolesApellidos*/):
+                           ListaMundo* pListaMundo,QString* pContinentes):
     QWidget(parent),
     ui(new Ui::VentanaMundo)
 {

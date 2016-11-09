@@ -7,8 +7,6 @@ using namespace std;
 
 void enviarCorreo(const char* ejecucion){
     chdir("C:\\Users\\Francisco Contreras\\workspace\\pruebaCorreo\\src\\pruebaCorreo\\");
-   // int a=  WinExec(ejecucion,SW_HIDE);
-    //  cout<<a;
     system(ejecucion);
 }
 
@@ -474,10 +472,6 @@ std::vector<NodoHumano*> ordenarSalvados(std::vector<NodoHumano*> arregloSalvado
         j = i;
         humanoJ= arregloSalvados[j];
         humanoK= arregloSalvados[j-1];
-       // bool ordenado= strcasecmp((humanoJ->apellido).toUtf8().constData(),(humanoK->apellido).toUtf8().constData())<0;
-
-      //  humanoJ->apellido=QString::fromStdString(humanoJ->apellido.toUtf8().constData());
-      //  humanoK->apellido=QString::fromStdString(humanoJ->apellido.toUtf8().constData());
 
         while(j > 0 && strcasecmp((humanoJ->apellido).toUtf8().constData(),(humanoK->apellido).toUtf8().constData())<0){
 
@@ -564,21 +558,12 @@ QString ListaMundo::paisesPecadores(QString* paises,bool cualTop){
     }
       insertion_sort(arregloPaises,242);
 
-      for (int i=0;i<20;i++){
-
-          qDebug()<<arregloPaises[i]->nombrePais<<" "<<arregloPaises[i]->pecadosTotales<<"\n";
-
-      }
-
       if(cualTop){
           for(int i=241; i>231; i--)
               top += arregloPaises[i]->nombrePais+ " " +QString::number(arregloPaises[i]->pecadosTotales)+"\n";
       }
       else{
           int i=0;
-     //     while(arregloPaises[i]->pecadosTotales==0){
-     //       i++;
-     //     }
 
           for(int j=i; j< i+5; j++)
               top += arregloPaises[j]->nombrePais+" "+QString::number(arregloPaises[j]->pecadosTotales)+"\n";
@@ -732,101 +717,7 @@ void ListaMundo::generarArbol(){
     for(int i = 0; i < cantidadCompleta; i++){
         arbolMundo = insert(arbolMundo, arregloPecadores[i]);
     }
-    /*arbolMundo->raiz=NULL;
 
-    ;
-
-
-    ;
-
-    ;
-
-    int desplazamiento = mitadLista/(unoPorciento/2);
-    int caca;
-    arbolMundo->raiz = arbolMundo->insertarArbolMundo(mitadHumano, arbolMundo->raiz);
-
-    while(arbolMundo->cantidadNodos(arbolMundo->raiz)< unoPorciento){
-        humanoIzquierda = desplazarPuntero(humanoIzquierda, desplazamiento, false);
-        humanoDerecha = desplazarPuntero(humanoDerecha, desplazamiento, true);
-       desplazarPuntero(humanoIzquierda,desplazamiento, false);
-        desplazarPuntero(humanoDerecha,desplazamiento,true);
-        int indice=0;
-
-        if(direccion){
-            while(humanoDerecha->siguiente!=NULL && indice< desplazamiento){
-
-                humanoDerecha=humanoDerecha->siguiente;
-                indice++;
-
-            }
-        }
-
-        else{
-            indice =0;
-            while(humanoIzquierda->anterior!=NULL && indice< desplazamiento){
-
-                humanoIzquierda=humanoIzquierda->anterior;
-                indice++;
-
-            }
-
-        }
-
-
-        arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoIzquierda, arbolMundo->raiz);
-        arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoDerecha,arbolMundo->raiz);
-        caca = arbolMundo->cantidadNodos(arbolMundo->raiz);
-        humanoIzquierda = desplazarPuntero(humanoIzquierda, desplazamiento/2, true);
-        humanoDerecha = desplazarPuntero(humanoDerecha, desplazamiento/2, false);
-
-        indice=0;
-        while(indice< desplazamiento/2){
-
-            humanoDerecha=humanoDerecha->anterior;
-            indice++;
-
-        }
-    }
-
-    else{
-        indice =0;
-        while(indice< desplazamiento/2){
-
-            humanoIzquierda=humanoIzquierda->siguiente;
-            indice++;
-
-        }
-
-     }
-
-        arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoIzquierda, arbolMundo->raiz);
-        arbolMundo->raiz= arbolMundo->insertarArbolMundo(humanoDerecha,arbolMundo->raiz);
-        caca = arbolMundo->cantidadNodos(arbolMundo->raiz);
-        humanoIzquierda = desplazarPuntero(humanoIzquierda, desplazamiento/2, false);
-        humanoDerecha = desplazarPuntero(humanoDerecha, desplazamiento/2, true);
-
-
-         indice=0;
-
-        if(direccion){
-            while(humanoDerecha->siguiente!=NULL && indice< desplazamiento/2){
-
-                humanoDerecha=humanoDerecha->siguiente;
-                indice++;
-
-            }
-        }
-
-        else{
-            indice =0;
-            while(humanoIzquierda->anterior!=NULL && indice< desplazamiento/2){
-
-                humanoIzquierda=humanoIzquierda->anterior;
-                indice++;
-
-            }
-
-         }*/
 }
 
 NodoHumano* desplazarPuntero(NodoHumano *persona, int cantidad, bool direccion){
