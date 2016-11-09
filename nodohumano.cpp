@@ -2,6 +2,13 @@
 
 using namespace std;
 
+/*
+ * Entradas: ninguna
+ * Salidas: string con la fecha y hora
+ *
+ * Genera un string con el momento exacto de invocacion de la
+ * funcion.
+ */
 string NodoHumano::obtenerNacimiento(){
     time_t momento = time(0);
     string momentoString = "";
@@ -21,6 +28,14 @@ string NodoHumano::obtenerNacimiento(){
     return momentoString;
 }
 
+/*
+ * Entradas: humano que se desea duplicar
+ * Salidas: nodo humano identico al humano ingresado
+ *
+ * Recibe un nodo humano y genera un nuevo nodo humano con exactamente
+ * los mismos atributos que el nodo ingresado. Esto para obtener una
+ * direccion de memoria distinta.
+ */
 NodoHumano* NodoHumano::clonarHumano(NodoHumano* humano){
     NodoHumano* nuevo = new NodoHumano(humano->id, humano->nombre,humano->apellido,
                                        humano->pais,humano->creencia,humano->profesion,
@@ -36,6 +51,14 @@ NodoHumano* NodoHumano::clonarHumano(NodoHumano* humano){
     return nuevo;
 }
 
+/*
+ * Entradas: cadena con el filtro que se desea
+ * Salidas: true si el humano cumple con el filtro, false de
+ * lo contrario
+ *
+ * Busca en los atributos del nodo humano para ver si alguno de ellos
+ * cumple con el filtro ingresado.
+ */
 bool NodoHumano::cumpleFiltro(QString filtro){
     return continente == filtro || pais == filtro ||
             creencia == filtro || profesion == filtro;

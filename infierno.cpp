@@ -4,6 +4,15 @@
 #include <iostream>
 using namespace std;
 
+/*
+ * Entradas: pais que se va a condenar y la referencia a la lista del mundo
+ * Salidas: ninguna
+ *
+ * Funcion que genera un heap de los pecadores del pais ingresado y borra al
+ * 25% de los mas pecadores del mundo y los mete al infierno.
+ * Despues envia un correo con todos los condenados al correo del continente
+ * al cual pertenece el pais.
+ */
 void Infierno::condenar(QString pPais, ListaMundo *listaMundo){
     std::vector<NodoHumano*> heapPecadores(listaMundo->contarNacionales(pPais));
     heapPecadores = listaMundo->generarHeapCondenados(pPais);

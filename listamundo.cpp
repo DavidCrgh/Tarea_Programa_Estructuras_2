@@ -819,6 +819,13 @@ NodoHumano* ListaMundo::mitadLista(){
 
 }
 
+/*
+ * Entradas: pais sobre el cual se desean contar los ciudadanos
+ * Salidas: cantidad de ciudadanos en el pais ingresado
+ *
+ * Itera sobre la lista correspondiente y suma uno a un contador
+ * si el pais del humano actual corresponde
+ */
 int ListaMundo::contarNacionales(QString pPais){
     int sumatoria = 0;
     NodoHumano* nodoActual = primerHumano;
@@ -833,6 +840,7 @@ int ListaMundo::contarNacionales(QString pPais){
     return sumatoria;
 }
 
+<<<<<<< Updated upstream
 /*
  *
  * Entradas: Cual lista se ordenará.
@@ -840,6 +848,8 @@ int ListaMundo::contarNacionales(QString pPais){
  * La función determina si se ordenará la lista del paraiso o la del infierno y se llama para cada una un método especial de ordenamiento, al final se devuelve la información de los humanos de la lista ordenada.
  *
  * */
+=======
+>>>>>>> Stashed changes
 
 QString ListaMundo::listaCondenadosSalvadosOrdenada(bool cualLista){
     QString listaNombrePecado[]={"Lujuria","Gula","Avaricia","Pereza","Ira","Envidia","Soberbia"};
@@ -901,6 +911,14 @@ QString ListaMundo::listaCondenadosSalvadosOrdenada(bool cualLista){
     return informacion;
 }
 
+/*
+ * Entradas: cadena con el pais del cual se desea generar el heap
+ * Salidas: vector(heap) del pais ingreado
+ *
+ * Genera un vector de humanos a partir de los humanos de la lista del
+ * mundo que pertenecen al pais ingresado y despues la ordena para hacer
+ * el heap.
+ */
 std::vector<NodoHumano*> ListaMundo::generarHeapCondenados(QString pPais){
     int largoArreglo = contarNacionales(pPais);
 
@@ -935,6 +953,15 @@ int determinarPotenciaCercana(int numero)
     return (pow(2, ceil(log(numero)/log(2)))) - 1;
 }
 
+/*
+ * Entradas: ninguna
+ * Salidas: ninguna
+ *
+ * Genera un arbol binario balanceado y completo en todos sus niveles con el 1%
+ * de los humanos de la lista del mundo mas los que sean necesarios para que el
+ * arbol sea completo. Esto se determina caculando la potencia de dos mas cerca-
+ * na al 1% menos uno.
+ */
 void ListaMundo::generarArbol(){
     arbolMundo = NULL;
     NodoHumano* mitadHumano= mitadLista();
@@ -991,6 +1018,12 @@ NodoHumano* desplazarPuntero(NodoHumano *persona, int cantidad, bool direccion){
     return persona;
 }
 
+/*
+ * Entradas: nodo raiz del arbol que se desea contar
+ * Salidas: cantidad de nodos en el arbol
+ *
+ * Funcion recursiva que cuenta la cantidad total de nodos en el arbol ingresado.
+ */
 int ArbolMundo::cantidadNodos(NodoArbolMundo* raiz){
 
     if(raiz==NULL)
@@ -1018,6 +1051,12 @@ NodoArbolMundo* ArbolMundo::insertarArbolMundo(NodoHumano *humano, NodoArbolMund
     return raiz;
 }
 
+/*
+ * Entradas: nodo humano que se desea insertar a la lista
+ * Salidas: ninguna
+ *
+ * Inserta un nodo humano a la lista de forma ordenada.
+ */
 void ListaMundo::insertarNodoHumano(NodoHumano* humanoNuevo){
 
     if(primerHumano==NULL)
@@ -1076,6 +1115,14 @@ long long ListaMundo::sumarPecadosHumanidad(){
     return sumador;
 }
 
+/*
+ * Entradas: suma total de los pecados de la humanidad
+ * Salidas: cadena con la lista de humanos generada
+ *
+ * Retorna una cadena con la informacion de los humanos actualmente
+ * en la lista con la suma de sus pecados y el porcentaje que repre-
+ * sentan de toda la humanidad.
+ */
 QString ListaMundo::imprimirOrdenPecados(long long pecadosHumanidad){
     QString listaNombrePecado[]={"Lujuria","Gula","Avaricia","Pereza","Ira","Envidia","Soberbia"};
     int largo = largoLista();
@@ -1153,6 +1200,14 @@ ListaMundo* ListaMundo::filtrarApellidos(node *arbolApellido, ListaMundo *lista)
     return lista;
 }
 
+/*
+ * Entradas: cadena con la cual se van a filtrar los humanos
+ * Salidas: listaMundo auxiliar
+ *
+ * Funcion que itera sobre una listaMundo principal y mete los humanos
+ * que cumplen con el filtro ingresado a una lista auxiliar que despues
+ * es retornada.
+ */
 ListaMundo* ListaMundo::filtrarLista(QString filtro){
     ListaMundo* lista = new ListaMundo();
     NodoHumano* humanoActual = primerHumano;
